@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.belongs_to :rentalIncome, foreign_key: true
       t.string :date
       t.integer :amount
-      t.string :type
+      t.string :payment_type
       t.string :notes
 
       t.timestamps null: false

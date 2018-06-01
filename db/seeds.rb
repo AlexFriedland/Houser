@@ -19,7 +19,7 @@
 @deposit = Deposit.create(amount: 500)
 
 @rental_income = RentalIncome.create(amount: 5895, percentPaid: 100)
-@payment = Payment.create(amount: 5895, type: "CK")
+@payment = Payment.create(amount: 5895, payment_type: "CK")
 
 @week.renters << @renter
 @renter.weeks << @week

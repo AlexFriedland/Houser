@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
   end
 
   create_table "houses", force: :cascade do |t|
+    t.string "name"
     t.string "info"
     t.integer "value"
     t.integer "purchase_price"
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
 
   create_table "incomes", force: :cascade do |t|
     t.integer "house_id"
+    t.integer "total_income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_incomes_on_house_id"
@@ -52,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.integer "rentalIncome_id"
     t.string "date"
     t.integer "amount"
-    t.string "type"
+    t.string "payment_type"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -71,7 +73,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
   create_table "renters", force: :cascade do |t|
     t.integer "week_id"
     t.string "name"
-    t.string "string"
     t.string "address"
     t.string "notes"
     t.datetime "created_at", null: false
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
   create_table "years", force: :cascade do |t|
     t.integer "income_id"
     t.integer "year"
+    t.integer "total_income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["income_id"], name: "index_years_on_income_id"
