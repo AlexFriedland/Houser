@@ -1,3 +1,3 @@
 class Payment < ApplicationRecord
-  belongs_to :rentalIncome
+  belongs_to :rincome
 end

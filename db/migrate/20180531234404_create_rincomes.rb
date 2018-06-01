@@ -1,6 +1,6 @@
-class CreateRentalIncomes < ActiveRecord::Migration[5.2]
+class CreateRincomes < ActiveRecord::Migration[5.2]
   def change
-    create_table :rental_incomes do |t|
+    create_table :rincomes do |t|
       t.belongs_to :week, foreign_key: true
       t.integer :amount
       t.integer :percentPaid

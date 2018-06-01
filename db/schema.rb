@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.integer "purchase_price"
     t.integer "market_value"
     t.integer "total_income"
+    t.integer "total_expenses"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
