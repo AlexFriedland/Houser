@@ -6,7 +6,7 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.integer :purchase_price
       t.integer :market_value
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

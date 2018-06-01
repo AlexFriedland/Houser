@@ -5,7 +5,7 @@ class CreateRentalIncomes < ActiveRecord::Migration[5.2]
       t.integer :amount
       t.integer :percentPaid
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

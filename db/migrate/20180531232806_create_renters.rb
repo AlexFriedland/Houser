@@ -7,7 +7,7 @@ class CreateRenters < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :notes
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

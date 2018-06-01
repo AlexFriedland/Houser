@@ -6,7 +6,7 @@ class CreateDeposits < ActiveRecord::Migration[5.2]
       t.integer :amount
       t.string :notes
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

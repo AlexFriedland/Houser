@@ -4,7 +4,7 @@ class CreateYears < ActiveRecord::Migration[5.2]
       t.belongs_to :income, foreign_key: true
       t.integer :year
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
