@@ -24,6 +24,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'rails-erd', group: :development
+gem 'rails-data-explorer'
+
+
 
 gem 'pry'
 # Use Redis adapter to run Action Cable in production
