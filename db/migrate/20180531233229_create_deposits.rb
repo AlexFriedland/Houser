@@ -4,6 +4,7 @@ class CreateDeposits < ActiveRecord::Migration[5.2]
       t.belongs_to :week, foreign_key: true
       t.boolean :returned
       t.integer :amount
+      t.string :notes
 
       t.timestamps
     end

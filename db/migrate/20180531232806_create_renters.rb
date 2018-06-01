@@ -5,6 +5,7 @@ class CreateRenters < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :string
       t.string :address
+      t.string :notes
 
       t.timestamps
     end
