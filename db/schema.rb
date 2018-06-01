@@ -38,16 +38,9 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.integer "value"
     t.integer "purchase_price"
     t.integer "market_value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "incomes", force: :cascade do |t|
-    t.integer "house_id"
     t.integer "total_income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["house_id"], name: "index_incomes_on_house_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -90,12 +83,12 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
   end
 
   create_table "years", force: :cascade do |t|
-    t.integer "income_id"
+    t.integer "house_id"
     t.integer "year"
     t.integer "total_income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["income_id"], name: "index_years_on_income_id"
+    t.index ["house_id"], name: "index_years_on_house_id"
   end
 
 end
