@@ -6,14 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+#create house income and year
 @h = House.create(name: "Bayberry")
-@y = Year.create(year: 2007)
+@y = Year.create!(year: 2007, total_income: 0)
+
+#add income and year to house
+@h.years << @y
+
+#add empty weeks
 @y.weeks << Week.create(date: "June 2", closed?: true)
 @y.weeks << Week.create(date: "June 9", closed?: true)
 @y.weeks << Week.create(date: "June 16", closed?: true)
 @y.weeks << Week.create(date: "June 23", closed?: true)
 @y.weeks << Week.create(date: "June 23", closed?: true)
 
+#add first rented week, 2007
 @week = Week.create(date: "June 30", closed?: true)
 @renter = Renter.create(name: "Steven Vondran", notes: "$400 more")
 @deposit = Deposit.create(amount: 500)
