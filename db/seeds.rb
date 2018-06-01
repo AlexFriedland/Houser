@@ -26,4 +26,4 @@
 @week.deposits << @deposit
 
 @rental_income.payments << @payment
-@week.rental_income << @rental_income
+@week.rental_incomes << @rental_income
