@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
+=begin
 #create house income and year
-@h = House.create(name: "Bayberry")
-@y = Year.create!(year: 2007, total_income: 0)
+@h = House.create!(name: "Bayberry")
+@h.years << Year.create!(year: 2007, total_income: 0)
 
 #add income and year to house
 @h.years << @y
@@ -36,3 +36,4 @@
 
 @rental_income.payments << @payment
 @week.rental_incomes << @rental_income
+=end
