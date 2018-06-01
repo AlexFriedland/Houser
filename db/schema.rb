@@ -55,15 +55,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.index ["rentalIncome_id"], name: "index_payments_on_rentalIncome_id"
   end
 
-  create_table "rental_incomes", force: :cascade do |t|
-    t.integer "week_id"
-    t.integer "amount"
-    t.integer "percentPaid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["week_id"], name: "index_rental_incomes_on_week_id"
-  end
-
   create_table "renters", force: :cascade do |t|
     t.integer "week_id"
     t.string "name"
@@ -72,6 +63,15 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["week_id"], name: "index_renters_on_week_id"
+  end
+
+  create_table "rincomes", force: :cascade do |t|
+    t.integer "week_id"
+    t.integer "amount"
+    t.integer "percentPaid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["week_id"], name: "index_rincomes_on_week_id"
   end
 
   create_table "weeks", force: :cascade do |t|

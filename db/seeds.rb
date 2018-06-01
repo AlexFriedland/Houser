@@ -7,10 +7,10 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 
-=begin
+#=begin
 #create! house  and year
-@h = House.create!!(name: "Bayberry")
-@h.years << Year.create!!(house_id: @h.id, year: 2007, total_income: 0)
+@h = House.create!(name: "Bayberry")
+@h.years << Year.create!(house_id: @h.id, year: 2007, total_income: 0)
 @y = @h.years.first
 
 #add empty weeks
@@ -23,23 +23,20 @@
 #add first rented week, 2007
 @y.weeks << Week.create!(year_id: @y.id, date: "June 30", closed?: true)
 
+#create week variable
+@w = @y.weeks.last
+
 #add renter to week
-@y.weeks.last.renters << Renter.create!(week_id: @y.weeks.last.id, name: "Steven Vondran", notes: "$400 more")
+@w.renters << Renter.create!(week_id: @w.id, name: "Steven Vondran", notes: "$400 more")
 
 #add deposit to week
-@y.weeks.last.deposits << Deposit.create!(week_id: @y.weeks.last.id, amount: 500)
+@w.deposits << Deposit.create!(week_id: @w.id, amount: 500)
 
 #add rental income to week, and payment to rentalincome
-@y.weeks.last.rental_incomes << RentalIncome.create!(week_id: @y.weeks.last.id, amount: 5895, percentPaid: 100)
+@w.rincomes << Rincome.create!(week_id: @w.id, amount: 5895, percentPaid: 100)
 
 #******
-@y.weeks.last.rental_incomes.last.payments << Payment.create!(rental_income_id: @y.weeks.last.rental_incomes.last.id, amount: 5895, payment_type: "CK")
+@w.rincomes.last.payments << Payment.create!(Rimcome id: @w.rincomes.last.id, amount: 5895, payment_type: "CK")
 
 
-@week.renters << @renter
-@renter.weeks << @week
-@week.deposits << @deposit
-
-@rental_income.payments << @payment
-@week.rental_incomes << @rental_income
-=end
+#=end
