@@ -45,14 +45,14 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer "rentalIncome_id"
+    t.integer "rincome_id"
     t.string "date"
     t.integer "amount"
     t.string "payment_type"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rentalIncome_id"], name: "index_payments_on_rentalIncome_id"
+    t.index ["rincome_id"], name: "index_payments_on_rincome_id"
   end
 
   create_table "renters", force: :cascade do |t|

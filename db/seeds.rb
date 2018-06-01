@@ -7,7 +7,7 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 
-#=begin
+=begin
 #create! house  and year
 @h = House.create!(name: "Bayberry")
 @h.years << Year.create!(house_id: @h.id, year: 2007, total_income: 0)
@@ -36,7 +36,7 @@
 @w.rincomes << Rincome.create!(week_id: @w.id, amount: 5895, percentPaid: 100)
 
 #******
-@w.rincomes.last.payments << Payment.create!(Rimcome id: @w.rincomes.last.id, amount: 5895, payment_type: "CK")
+@w.rincomes.last.payments << Payment.create!(rincome_id: @w.rincomes.last.id, amount: 5895, payment_type: "CK")
 
 
-#=end
+=end
