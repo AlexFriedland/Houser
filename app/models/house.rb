@@ -1,3 +1,4 @@
 class House < ApplicationRecord
-  has_many: :houses
+  has_many :expenses
+
 end
