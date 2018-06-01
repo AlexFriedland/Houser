@@ -14,11 +14,16 @@
 @y.weeks << Week.create(date: "June 23", closed?: true)
 @y.weeks << Week.create(date: "June 23", closed?: true)
 
-@w = Week.create(date: "June 30", closed?: true)
-@r = Renter.create(name: "Steven Vondran", notes: "$400 more")
-@d = Deposit.create(amount: 500)
+@week = Week.create(date: "June 30", closed?: true)
+@renter = Renter.create(name: "Steven Vondran", notes: "$400 more")
+@deposit = Deposit.create(amount: 500)
 
-@ri = RentalIncome.create(amount: 5895, percentPaid: 100)
-@p = Payment.create(amount: 5895, type: "CK")
+@rental_income = RentalIncome.create(amount: 5895, percentPaid: 100)
+@payment = Payment.create(amount: 5895, type: "CK")
 
-@w.renters << @r
+@week.renters << @renter
+@renter.weeks << @week
+@week.deposits << @deposit
+
+@rental_income.payments << @payment
+@week.rental_income << @rental_income
