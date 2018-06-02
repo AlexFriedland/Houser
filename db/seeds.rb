@@ -5,7 +5,16 @@
 #
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
+
+
+#spreadsheet setup
+require 'pry'
 require 'spreadsheet'
+Spreadsheet.client_encoding = 'UTF-8'
+book = Spreadsheet.open '/Users/Alexander/Desktop/P-Town Rental History through 2014-2017.xls'
+binding.pry
+
+
 
 #=begin
 #create! house  and year
