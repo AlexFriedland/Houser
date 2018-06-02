@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Name </th>
       <th>Market Value</th>
       <th>Value</th>
       <th>Income</th>
@@ -15,18 +15,13 @@
   </thead>
 
   <tbody>
-    <% @houses.each do |song| %>
+    <% @houses.each do |house| %>
       <tr>
-        <td><%= house.name %></td>
+        <td><%= link_to house.name, house %></td>
         <td><%= house.market_value %></td>
         <td><%= house.value %></td>
         <td><%= house.total_income %></td>
         <td><%= house.total_expenses %></td>
-        <td>
-          <%= link_to 'View', house %> |
-          <%= link_to 'Edit', edit_house_path(house) %> |
-          <%= link_to 'Delete', house, method: :delete, data: { confirm: 'For real?' } %>
-        </td>
       </tr>
     <% end %>
   </tbody>

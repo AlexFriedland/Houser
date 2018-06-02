@@ -5,13 +5,17 @@
 #
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
-
+require 'spreadsheet'
 
 #=begin
 #create! house  and year
 @h = House.create!(name: "Bayberry")
-@h.years << Year.create!(house_id: @h.id, year: 2007, total_income: 0)
+@h.years << Year.create!(house_id: @h.id, year: 2007, info: "Bayberry house info", total_income: 0, market_value: 0, purchase_price: 0, total_expenses: 0, total_income: 0, value: 0)
 @y = @h.years.first
+
+weeks_array = [
+
+]
 
 #add empty weeks
 @y.weeks << Week.create!(year_id: @y.id, date: "June 2", closed?: true)
