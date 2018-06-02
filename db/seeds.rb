@@ -13,15 +13,19 @@ require 'csv'
 
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/dev/houser/lib/seeds/Untitled.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  puts row.to_hash
+end
 
-binding.pry
 
 
 
-#=begin
+=begin
+old code
 #create! house  and year
-@h = House.create!(name: "Bayberry")
-@h.years << Year.create!(house_id: @h.id, year: 2007, info: "Bayberry house info")
+@h = House.create!(name: "Bayberry", info: "Bayberry house notes")
+@h.years << Year.create!(house_id: @h.id, year: 2007)
 @y = @h.years.first
 
 weeks_array = [
@@ -54,4 +58,4 @@ weeks_array = [
 @w.rincomes.last.payments << Payment.create!(rincome_id: @w.rincomes.last.id, amount: 5895, payment_type: "CK")
 
 
-#=end
+=end
