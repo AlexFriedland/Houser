@@ -9,9 +9,11 @@
 
 #spreadsheet setup
 require 'pry'
-require 'spreadsheet'
-Spreadsheet.client_encoding = 'UTF-8'
-book = Spreadsheet.open '/Users/Alexander/Desktop/P-Town Rental History through 2014-2017.xls'
+require 'csv'
+
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/dev/houser/lib/seeds/Untitled.csv'))
+
 binding.pry
 
 
@@ -19,7 +21,7 @@ binding.pry
 #=begin
 #create! house  and year
 @h = House.create!(name: "Bayberry")
-@h.years << Year.create!(house_id: @h.id, year: 2007, info: "Bayberry house info", total_income: 0, market_value: 0, purchase_price: 0, total_expenses: 0, total_income: 0, value: 0)
+@h.years << Year.create!(house_id: @h.id, year: 2007, info: "Bayberry house info")
 @y = @h.years.first
 
 weeks_array = [

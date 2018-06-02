@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails-erd', group: :development
 gem 'rails-data-explorer'
-gem 'spreadsheet'
+gem 'rubyXL'
 
 
 gem 'pry'
