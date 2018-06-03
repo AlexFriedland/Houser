@@ -1,1 +1,27 @@
 <h1><%= @year.year %></h1>
+<h4>Rentals</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Deposit</th>
+      <th>Misc / Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @year.weeks.each do |week| %>
+    <tr>
+      <td><%= link_to week.date, week %></td>
+      <td><%= week.rincomes.last.amount %></td>
+      <td><%= week.deposits.last.amount %></td>
+      <td><%= week.deposits.last.notes %>, <%= week.renters.last.notes %></td>
+
+    </tr>
+    <% end %>
+    
+    <tr>
+      <td>Total?</td>
+    </tr>
+  </tbody>
+</table>

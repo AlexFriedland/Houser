@@ -10,7 +10,7 @@ class YearsController < ApplicationController
 
   def update
     @year = Year.find(params[:id])
-    @year.update(artist_params)
-    redirect_to artist_path(@artist)
+    @year.update(year_params)
+    redirect_to artist_path(@year)
   end
 end
