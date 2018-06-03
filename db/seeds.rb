@@ -19,25 +19,29 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/d
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 puts csv
 
+total_income = 0
+
 csv.each do |row|
 
   @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
   week = @y.weeks.last
-
 
   if row['Rental'] != nil
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
     week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'], returned: true)
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+
+    total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
   end
-
-
 
 end
 
-puts "done"
+@y.total_income = total_income
+@y.save
 
+puts "done"
+puts "#{@y.total_income}"
 
 
 =begin

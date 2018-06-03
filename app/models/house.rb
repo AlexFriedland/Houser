@@ -6,13 +6,7 @@ class House < ApplicationRecord
   def show_total_income
 
     self.years.each do |year|
-      year.weeks.each do |week|
-        week.rincomes.each do |rincome|
-          if rincome.amount > 0
-            self.total_income += rincome.amount
-          end
-        end
-      end
+      self.total_income += year.total_income
     end
     total_income
   end

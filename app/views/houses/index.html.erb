@@ -44,11 +44,20 @@
       <tr>
         <td><%= house.name %></td>
         <% house.years.each do |year| %>
-          <td> <%= link_to year.show_income, year %> </td>
+          <td> <%= link_to year.total_income, year %> </td>
         <% end %>
       </tr>
     <%end%>
   </tbody>
+
+  <h3>Open Weeks</h3>
+  <ol>
+    <% @houses.each do |house| %>
+      <% house.years.each do |year| %>
+
+      <%end%>
+    <%end %>
+  </ol>
 
 </table>
 
