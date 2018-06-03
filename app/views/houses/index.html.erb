@@ -1,6 +1,6 @@
 <h1>Houses</h1>
 <br />
-
+<h3>House Overview</h3>
 <table>
   <thead>
     <tr>
@@ -50,16 +50,20 @@
     <%end%>
   </tbody>
 
-  <h3>Open Weeks</h3>
-  <ol>
-    <% @houses.each do |house| %>
-      <% house.years.each do |year| %>
-
-      <%end%>
-    <%end %>
-  </ol>
-
 </table>
+<h3>Open Weeks</h3>
+<ol>
+  <li>hardcoded blank</li>
+  <% @houses.each do |house| %>
+    <% house.years.each do |year| %>
+      <% year.weeks.each do |week| %>
+        <% if !week.closed? %>
+          <%= link_to week.date, week_path %>
+        <% end %>
+      <% end %>
+    <%end%>
+  <%end %>
+</ol>
 
 <br><br><br>
 <div><%= link_to 'Add New House', new_house_path %></div>

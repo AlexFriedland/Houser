@@ -27,6 +27,9 @@ gem 'rails-erd', group: :development
 gem 'rails-data-explorer'
 gem 'rubyXL'
 
+gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
 
 gem 'pry'
 # Use Redis adapter to run Action Cable in production
