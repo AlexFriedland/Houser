@@ -1,8 +1,7 @@
 class WeeksController < ApplicationController
 
   def show
-    @house = House.find(params[:id])
-    @weeks =@house.weeks
+    @week = Week.find(params[:id])
   end
-  
+
 end

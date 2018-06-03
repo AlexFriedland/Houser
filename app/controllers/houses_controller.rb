@@ -8,6 +8,11 @@ class HousesController < ApplicationController
     @houses = House.all
   end
 
+  def weeks_index
+    @house = House.find(params[:id])
+    @weeks = @house.weeks
+  end
+
   def show
     @house = House.find(params[:id])
   end
