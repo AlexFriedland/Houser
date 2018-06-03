@@ -5,7 +5,6 @@ class CreateWeeks < ActiveRecord::Migration[5.2]
       t.string :date
       t.boolean :closed?
 
-
       t.timestamps null: false
     end
   end
