@@ -50,6 +50,27 @@
     <%end%>
   </tbody>
 </table>
+<br>
+<h4>Test</h4>
+
+<ol>
+  House
+  <li><%= @houses.first.name %></li>
+  <li><%= @houses.first.info %></li>
+  Year
+  <%@houses.first.years.each do |year|%>
+    <li><%= year.year %></li>
+    <li><%= year.total_income %></li>
+  <%end%>
+  Weeks
+
+
+</ol>
+
+
+
+
+
 <br><br><br>
 <h4>Open Weeks</h4>
 <ol>
