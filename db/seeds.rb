@@ -19,18 +19,22 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/d
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
 
-  week = Week.new(closed?: true, date: "#{row['Rental Week']}")
-  
+
+  @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
+  week = @y.weeks.last
+
+
   if row['Rental'] != nil
-    deposit = Deposit.new(amount: "#{row['Deposit']}", returned: true)
-    rincome = Rincome.new(amount: "#{row['Rental']}")
-    renter = Renter.new(name: "#{row['Renter']}")
-    payment = Payment.new(paid: "#{row['Paid']}")
+
+    week.renters << Renter.create!(week_id: week.id, name: "#{row['Renter']}")
+    week.deposits << Deposit.create!(week_id: week.id, amount: "#{row['Deposit']}", returned: true)
+    week.rincomes << Rincome.create!(week_id: week.id, amount: "#{row['Rental']}")
+    week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: "#{row['Paid']}")
   end
 
-  week.save;deposit.save;rincome.save;renter.save;payment.save
   @y.weeks << week
-  puts "#{t.street}, #{t.city} saved"
+
+  puts "#{week.date} saved"
 end
 
 
@@ -49,10 +53,6 @@ weeks_array = [
 
 #add empty weeks
 @y.weeks << Week.create!(year_id: @y.id, date: "June 2", closed?: true)
-@y.weeks << Week.create!(year_id: @y.id, date: "June 9", closed?: true)
-@y.weeks << Week.create!(year_id: @y.id, date: "June 16", closed?: true)
-@y.weeks << Week.create!(year_id: @y.id, date: "June 23", closed?: true)
-@y.weeks << Week.create!(year_id: @y.id, date: "June 23", closed?: true)
 
 #add first rented week, 2007
 @y.weeks << Week.create!(year_id: @y.id, date: "June 30", closed?: true)
