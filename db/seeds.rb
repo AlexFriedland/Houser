@@ -11,8 +11,8 @@
 require 'pry'
 require 'csv'
 
-@h = House.create!(name: "Bayberry", info: "Bayberry house notes")
-@h.years << Year.create!(house_id: @h.id, year: 2007)
+@h = House.create!(name: "Bayberry", info: "Bayberry house notes", total_income: 0, total_expenses: 0)
+@h.years << Year.create!(house_id: @h.id, year: 2007, total_income: 0)
 @y = @h.years.first
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/dev/houser/lib/seeds/Untitled.csv'))
@@ -26,19 +26,17 @@ csv.each do |row|
 
 
   if row['Rental'] != nil
-    binding.pry
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
     week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'], returned: true)
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
   end
 
-  @y.weeks << week
 
 
 end
 
-
+puts "done"
 
 
 
