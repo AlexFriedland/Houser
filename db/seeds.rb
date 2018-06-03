@@ -35,7 +35,8 @@ csv.each do |row|
 end
 @y.total_income = total_income
 @y.save
-
+csv_text = nil
+csv = nil
 
 
 
@@ -49,22 +50,28 @@ end
 csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/dev/houser/lib/seeds/Bayberry08.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 
+
+
 total_income = 0
 
 csv.each do |row|
+
 
   @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
   week = @y.weeks.last
 
   if row['Rental'] != nil
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
-    week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'], returned: true, notes: row['Misc'] + ": " + row['Description'])
+    week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'], returned: true, notes: "#{row['Misc']}: #{row['Description']}")
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+    week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
+
   end
 end
+
 @y.total_income = total_income
+@h.save
 @y.save
 
 
@@ -74,6 +81,9 @@ end
 
 
 puts "done"
+puts "years: #{Year.count}"
+puts "new weeks: #{Year.last.weeks.count}"
+
 puts "#{@y.total_income}"
 
 
