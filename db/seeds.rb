@@ -22,15 +22,16 @@ total_income = 0
 
 csv.each do |row|
 
-  @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
-  week = @y.weeks.last
-
   if row['Rental'] != nil
+    @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
+    week = @y.weeks.last
+
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
-    week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'], returned: true)
+    week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true)
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
+    week.save
   end
 end
 @y.total_income = total_income
@@ -56,17 +57,17 @@ total_income = 0
 
 csv.each do |row|
 
-
-  @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
-  week = @y.weeks.last
-
   if row['Rental'] != nil
+    @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
+    week = @y.weeks.last
+
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
     week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true, notes: "#{row['Misc']}: #{row['Description']}")
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
 
+    week.save
   end
 end
 

@@ -10,4 +10,14 @@ class Year < ApplicationRecord
     income
   end
 
+  def total_deposits
+    i = 0
+    self.weeks.each {|week|
+      week.deposits.each {|deposit|
+        i += deposit.amount
+      }
+    }
+    i
+  end
+
 end

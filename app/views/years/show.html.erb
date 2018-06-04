@@ -13,15 +13,17 @@
     <% @year.weeks.each do |week| %>
     <tr>
       <td><%= link_to week.date, week %></td>
-      <td><%= week.rincomes.last.amount %></td>
-      <td><%= week.deposits.last.amount %></td>
+      <td><%= week.total_income %></td>
+      <td><%= week.deposits.last.amount ? week.deposits.last.amount : 0 %></td>
       <td><%= week.deposits.last.notes %>, <%= week.renters.last.notes %></td>
 
     </tr>
     <% end %>
-    
+
     <tr>
-      <td>Total?</td>
+      <td>Total</td>
+      <td> <%= @year.total_income %> </td>
+      <td> <%= @year.total_deposits %></td>
     </tr>
   </tbody>
 </table>
