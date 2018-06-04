@@ -81,7 +81,7 @@ csv = nil
 #------------------
 #2009
 
-=begin
+
 @h.years << Year.create!(house_id: @h.id, year: 2009, total_income: 0)
 @y = @h.years.last
 
@@ -101,7 +101,7 @@ csv.each do |row|
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
     week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true, notes: "#{row['Misc']}: #{row['Description']}")
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+    week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], notes: row['Notes'])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
 
     week.save
