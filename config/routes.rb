@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :payments
-  resources :rental_incomes
+  resources :rincomes
   resources :deposits
   resources :renters
   resources :weeks
