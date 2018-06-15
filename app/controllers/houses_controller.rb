@@ -38,7 +38,10 @@ class HousesController < ApplicationController
     redirect_to houses_path
   end
 
+  
+
   private
+
   def house_params
     params.require(:house).permit(:name, :market_value, :info, :purchase_price, :total_expenses, :total_income, :value)
   end

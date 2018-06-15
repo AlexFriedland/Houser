@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :expenses
   resources :houses
 
+  get 'dash', to: 'houses#dash'
+
   root :to => 'houses#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
