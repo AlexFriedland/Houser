@@ -3,4 +3,17 @@
   <%= @house.info %>
 </div>
 
+<div>
+  <%= @house.name %> expenses:
+  <ol>
+    <% @house.expenses.each do |e| %>
+    <li>
+      <%= e.amount %>
+      <%= e.notes %>
+      <%= e.date %>
+    </li>
+    <% end %>
+  </ol>
+</div>
+
 House Income

@@ -5,6 +5,7 @@ class CreateExpenses < ActiveRecord::Migration[5.2]
       t.belongs_to :house, foreign_key: true
       t.integer :amount
       t.string :notes
+      t.date :date
 
       t.timestamps null: false
     end
