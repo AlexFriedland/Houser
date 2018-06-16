@@ -53,30 +53,32 @@
   </tbody>
 </table>
 <br>
-<table>
-  <thead>
-    <tr>
 
-    </tr>
-  </thead>
+<br><br><br>
+<h4>Open Weeks</h4>
+<!-- week.closed? -->
+<table>
   <tbody>
+      <% @houses.each do |house| %>
+        <% house.years.each do |year| %>
+          <% year.weeks.each do |week| %>
+            <% if week.closed? != true %>
+              <tr> <%= link_to week.date, week %></tr>
+            <% end %>
+          <% end %>
+        <%end%>
+      <%end %>
 
   </tbody>
 </table>
 
-
-
-
-
-<br><br><br>
-<h4>Open Weeks</h4>
 <ol>
   <li>hardcoded blank</li>
   <% @houses.each do |house| %>
     <% house.years.each do |year| %>
       <% year.weeks.each do |week| %>
-        <% if !week.closed? %>
-          <%= link_to week.date, week_path %>
+        <% if week.closed? != true %>
+          <li> <%= link_to week.date, week %><li>
         <% end %>
       <% end %>
     <%end%>

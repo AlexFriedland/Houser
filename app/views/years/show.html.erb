@@ -17,7 +17,7 @@
       <td><%= week.total_income %></td>
       <td><%= week.deposits.last.amount ? week.deposits.last.amount : 0 %></td>
       <td><%= week.deposits.last.notes %> <%= week.renters.last.notes %></td>
-      <td><%= link_to week.renters.first.name, week.renters.first.name %></td>
+      <td><%= link_to week.renters.first.name, week.renters.first %></td>
     </tr>
     <% end %>
 
