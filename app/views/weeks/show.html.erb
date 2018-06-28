@@ -1,12 +1,6 @@
 <h3><%= @week.date %>, <%= @week.year.year%> <%= @week.year.house.name %></h3>
-<br>
 
-
-
-<p>Renter: <%= link_to @week.renters.first.name, @week.renters.first.name %></p>
+<p>Renter: <%= link_to @week.renters.first.name, @week.renters.first %></p>
 <p>Rent: <%= @week.rincomes.first.amount %></p>
 <p>Deposit: <%= @week.deposits.first.amount %></p>
 <p>Deposit Notes: <%= @week.deposits.last.notes %>, <%= @week.renters.last.notes %> </p>
-
-
-show payments + notes

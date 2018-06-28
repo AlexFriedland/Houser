@@ -1,4 +1,4 @@
-
+<% require 'pry' %>
 
 <h1>Overview</h1>
 <br />
@@ -46,24 +46,32 @@
       <tr>
         <td><%= house.name %></td>
         <% house.years.each do |year| %>
+        <% #binding.pry %>
           <td> <%= link_to year.total_income, year %> </td>
         <% end %>
       </tr>
     <%end%>
   </tbody>
 </table>
-<br>
 
-<br><br><br>
-<h4>Open Weeks</h4>
+
+<br><br>
+
+
+
 <!-- week.closed? -->
 <table>
+  <thead>
+    <tr>
+      <th>Open Weeks</th>
+    </tr>
+  </thead>
   <tbody>
       <% @houses.each do |house| %>
         <% house.years.each do |year| %>
           <% year.weeks.each do |week| %>
             <% if week.closed? != true %>
-              <tr> <%= link_to week.date, week %></tr>
+              <td> <%= link_to week.date, week %></td>
             <% end %>
           <% end %>
         <%end%>
@@ -71,19 +79,6 @@
 
   </tbody>
 </table>
-
-<ol>
-  <li>hardcoded blank</li>
-  <% @houses.each do |house| %>
-    <% house.years.each do |year| %>
-      <% year.weeks.each do |week| %>
-        <% if week.closed? != true %>
-          <li> <%= link_to week.date, week %><li>
-        <% end %>
-      <% end %>
-    <%end%>
-  <%end %>
-</ol>
 
 <br><br><br>
 <div><%= link_to 'Add New House', new_house_path %></div>

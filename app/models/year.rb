@@ -7,6 +7,7 @@ class Year < ApplicationRecord
     self.weeks.each {|week|
       income += week.total_income
     }
+    income = income + total_deposits #+ all misc charges
     income
   end
 
