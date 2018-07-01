@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_234455) do
     t.integer "year_id"
     t.string "date"
     t.boolean "closed?"
+    t.integer "misc_charges"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["year_id"], name: "index_weeks_on_year_id"
