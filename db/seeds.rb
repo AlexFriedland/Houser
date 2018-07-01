@@ -100,7 +100,11 @@ csv.each do |row|
     @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
     week = @y.weeks.last
 
-    week.misc_charges = row['Misc'] if row['Misc']
+    if row['Misc']
+      week.misc_charges = row['Misc']
+    else
+      week.misc_charges = 0
+    end
 
     week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
     if row['Deposit']
@@ -111,6 +115,7 @@ csv.each do |row|
     week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], notes: row['Notes'])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
+
     total_income += week.misc_charges
 
     week.save
