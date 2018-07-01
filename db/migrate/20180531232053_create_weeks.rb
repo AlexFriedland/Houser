@@ -4,6 +4,7 @@ class CreateWeeks < ActiveRecord::Migration[5.2]
       t.belongs_to :year, foreign_key: true
       t.string :date
       t.boolean :closed?
+      t.integer :misc_charges
 
       t.timestamps null: false
     end
