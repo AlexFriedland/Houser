@@ -106,8 +106,6 @@ csv.each do |row|
     week.rincomes.last.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], notes: row['Notes'])
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
 
-    binding.pry
-
     week.save
   end
 end
