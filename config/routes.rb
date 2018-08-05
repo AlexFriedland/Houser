@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :expenses
   resources :houses
 
-  resources :users
+  #change this later
+  resources :users, :only => [:new, :create]
 
   get 'dash', to: 'houses#dash'
 
