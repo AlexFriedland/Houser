@@ -1,12 +1,13 @@
 class HousesController < ApplicationController
-
+  before_action :authentication_required
+  
   def new
     @house = House.new
   end
 
   def index
     #if not logged in can't see this, go back to login
-    
+    #if session[:user_id].present?
 
     @houses = House.all
   end
