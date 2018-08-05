@@ -6,10 +6,17 @@ class SessionsController < ApplicationController
 
     def create
       #raise cookies.inspect
-      user = User.find_by(email: params[:email])
 
-      session[:user_id] = user.id 
+      @user = User.find_by(email: params[:email])
+
+      session[:user_id] = @user.id
+      redirect_to root_path
       #login
 
+    end
+
+    def destroy
+      reset_session
+      redirect_to '/login'
     end
 end
