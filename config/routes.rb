@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :expenses
   resources :houses
 
+  get '/login' => "sessions#new"
+  post '/sessions' => "sessions#create"
+
   #change this later
   resources :users, :only => [:new, :create]
 
