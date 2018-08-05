@@ -5,6 +5,9 @@ class HousesController < ApplicationController
   end
 
   def index
+    #if not logged in can't see this, go back to login
+    
+
     @houses = House.all
   end
 
@@ -38,7 +41,7 @@ class HousesController < ApplicationController
     redirect_to houses_path
   end
 
-  
+
 
   private
 

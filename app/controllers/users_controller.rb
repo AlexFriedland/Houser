@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     #   flash[:notice] = "your email is invalid"
     # end
 
-    redirect_to root_path
+    
   end
 
   def something
