@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :expenses
   resources :houses
 
+  resources :users
+
   get 'dash', to: 'houses#dash'
 
   root :to => 'houses#index'
