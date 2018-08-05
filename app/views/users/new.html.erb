@@ -2,4 +2,6 @@
 
 <%= form_for(@user) do |f| %>
   <%= f.text_field :email, placeholder: "enter your email:" %>
+  <%= f.text_field :password, placeholder: "password" %>
+  <%= f.submit %>
 <% end %>
