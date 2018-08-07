@@ -39,6 +39,8 @@ gem 'pry'
 
  gem 'omniauth'
  gem 'omniauth-facebook'
+
+ # hides .env file for facebook data
  gem 'dotenv-rails'
 
 # Use ActiveStorage variant
