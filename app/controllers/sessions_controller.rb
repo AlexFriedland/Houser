@@ -45,7 +45,8 @@ class SessionsController < ApplicationController
         else
           render 'sessions/new'
         end
-
+        end
+      end
     end
 
     def destroy
