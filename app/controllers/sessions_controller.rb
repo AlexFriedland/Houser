@@ -6,51 +6,42 @@ class SessionsController < ApplicationController
 
     def create
       #raise cookies.inspect
-      # @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      #   u.name = auth['info']['name']
-      #   u.email = auth['info']['email']
-      #   u.image = auth['info']['image']
-      # end
-
-      #facebook omniauth
-
       if auth_hash = request.env["omniauth.auth"]
         #they logged in with OAuth
         # raise auth_hash.inspect
-
         oauth_email = request.env["omniauth.auth"]["info"]["email"]
-        if user = User.find_by(:email => oauth_email)
+        if @user = User.find_by(:email => oauth_email)
           #if we know that user, log them in
-
-          session[:user_id] = user.id
+          session[:user_id] = @user.id
           redirect_to root_path
         else
-          user = User.new(email: oauth_email, password: SecureRandom.hex)
-          if user.save
-            session[:user_id] = user.id
-            redirect_to root_path
+          @user = User.new(email: oauth_email, password: SecureRandom.hex)
+          if @user.save
+            session[:user_id] = @user.id
+            flash[:message] = "UNABLE TO LOG IN"
+            redirect_to sessions_path
           else
 
-          session[:user_id] = user.id
+          session[:user_id] = @user.id
 
           redirect_to root_path
+          end
         end
+
+
+      else
 
         #normal login
-        user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-          session[:user_id] = user.id
-          if user.id == 1
+        @user = User.find_by(email: params[:email])
+          if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
             redirect_to houses_path
           else
+            flash[:message] = "CANNOT FIND THAT EMAIL"
             render 'sessions/new'
           end
-        else
-          flash[:message] = "You don't have access to this website"
-          render 'sessions/new'
         end
-        end
-      end
+
     end
 
     def destroy
