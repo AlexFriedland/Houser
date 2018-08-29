@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_user_is_authenticated, only: [:new, :create]
+  skip_before_action :verify_user_is_authenticated, only: [:new, :create], raise: false
     def new
       @user = User.new
     end
@@ -40,9 +40,13 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-
-          redirect_to root_path
+          if user.id == 1
+            redirect_to houses_path
+          else
+            render 'sessions/new'
+          end
         else
+          flash[:message] = "You don't have access to this website"
           render 'sessions/new'
         end
         end
