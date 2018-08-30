@@ -9,6 +9,8 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.integer :total_income
       t.integer :total_expenses
 
+      t.belongs_to :user
+
       t.timestamps null: false
     end
   end
