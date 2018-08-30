@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_202033) do
+ActiveRecord::Schema.define(version: 2018_08_30_184056) do
 
   create_table "deposits", force: :cascade do |t|
     t.integer "week_id"
@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 2018_08_05_202033) do
     t.integer "market_value"
     t.integer "total_income"
     t.integer "total_expenses"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -78,8 +80,18 @@ ActiveRecord::Schema.define(version: 2018_08_05_202033) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
+    t.string "name"
+    t.string "image"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "week_renters", force: :cascade do |t|
+    t.integer "week_id"
+    t.integer "renter_id"
+    t.index ["renter_id"], name: "index_week_renters_on_renter_id"
+    t.index ["week_id"], name: "index_week_renters_on_week_id"
   end
 
   create_table "weeks", force: :cascade do |t|

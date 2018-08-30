@@ -13,9 +13,13 @@ require 'csv'
 
 #2007
 
+# @user = User.new(email: "a@gmail.com", password: "test")
+
+
 @h = House.create!(name: "Bayberry", info: "Bayberry house notes", total_income: 0, total_expenses: 0, market_value: 0, purchase_price: 0, value: 0)
 @h.years << Year.create!(house_id: @h.id, year: 2007, total_income: 0)
 @y = @h.years.last
+# @user.houses << @h
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', '/Users/Alexander/desktop/dev/houser/lib/seeds/Bayberry07.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')

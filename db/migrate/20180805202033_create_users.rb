@@ -7,8 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :image
       t.string :uid
       t.timestamps
-
-      t.has_many :houses
     end
   end
 end
