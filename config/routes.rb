@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :incomes
   resources :expenses
   resources :houses
+  resources :sessions
 
   get '/login' => "sessions#new"
   post '/sessions' => "sessions#create"

@@ -1,6 +1,7 @@
 class House < ApplicationRecord
   has_many :expenses
   has_many :years
+  belongs_to :user, optional: true
 
   #change this to calc from DB seed
   def show_total_income

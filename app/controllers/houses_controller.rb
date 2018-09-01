@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :authentication_required
-  
+
   def new
     @house = House.new
   end
