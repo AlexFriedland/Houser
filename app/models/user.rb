@@ -5,5 +5,8 @@ class User < ApplicationRecord
   :has_secure_password
   has_secure_password
 
+  #name, image, uid
+  #
+
   has_many :houses
 end

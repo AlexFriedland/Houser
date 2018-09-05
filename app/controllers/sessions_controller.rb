@@ -18,8 +18,8 @@ class SessionsController < ApplicationController
           @user = User.new(email: oauth_email, password: SecureRandom.hex)
           if @user.save
             session[:user_id] = @user.id
-            flash[:message] = "UNABLE TO LOG IN"
-            redirect_to sessions_path
+
+            redirect_to '/users/new'
           else
 
           session[:user_id] = @user.id
