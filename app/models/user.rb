@@ -4,9 +4,8 @@ class User < ApplicationRecord
   validates :password, presence: true
   :has_secure_password
   has_secure_password
+  has_many :houses
 
   #name, image, uid
   #
-
-  has_many :houses
 end
