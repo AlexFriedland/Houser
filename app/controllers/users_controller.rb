@@ -31,4 +31,19 @@ class UsersController < ApplicationController
 
   def something
   end
+
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find(session[:user_id])
+    end
+
+    # def complete_user?
+    #   params["name"] != ""
+    #   params["password"] != ""
+    # end
+  end
 end

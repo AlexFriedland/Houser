@@ -1,5 +1,8 @@
+require 'pry'
+
 class SessionsController < ApplicationController
   skip_before_action :verify_user_is_authenticated, only: [:new, :create], raise: false
+
     def new
       @user = User.new
     end
@@ -13,18 +16,18 @@ class SessionsController < ApplicationController
         if @user = User.find_by(:email => oauth_email)
           #if we know that user, log them in
           session[:user_id] = @user.id
-          redirect_to root_path
+          redirect_to houses_path
         else
           @user = User.new(email: oauth_email, password: SecureRandom.hex)
           if @user.save
             session[:user_id] = @user.id
 
-            redirect_to '/users/new'
+            redirect_to houses_path
           else
 
           session[:user_id] = @user.id
 
-          redirect_to root_path
+          redirect_to houses_path
           end
         end
 
@@ -46,6 +49,7 @@ class SessionsController < ApplicationController
 
     def destroy
       reset_session
+      
       redirect_to '/login'
     end
 
