@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :expenses
   resources :houses
   resources :sessions
-  
+  resources :users
 
   get '/login' => "sessions#new"
   post '/sessions' => "sessions#create"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   #change this later
-  resources :users, :only => [:new, :create, :show]
+  # resources :users, :only => [:new, :create, :show]
 
   get 'dash', to: 'houses#dash'
 

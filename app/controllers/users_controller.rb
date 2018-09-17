@@ -23,12 +23,15 @@ class UsersController < ApplicationController
     #   #error logic
     #   flash[:notice] = "your email is invalid"
     # end
-
-
   end
 
   def show
-    
+    if logged_in?
+      @user = User.find_by(params[:user_id])
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
   end
 
   helpers do
