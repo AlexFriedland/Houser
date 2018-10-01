@@ -1,3 +1,5 @@
+require 'pry'
+
 class HousesController < ApplicationController
   before_action :authentication_required
 
@@ -8,8 +10,9 @@ class HousesController < ApplicationController
   def index
     #if not logged in can't see this, go back to login
     #if session[:user_id].present?
-
-    @houses = House.all
+    binding.pry
+    @user = User.find(session[:user_id])
+    
   end
 
   def show

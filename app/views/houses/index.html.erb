@@ -1,7 +1,9 @@
-<% require 'pry' %>
 
-<h1>Overview</h1>
-<br />
+
+<h1>Welcome, <% @user %></h1><br>
+<h3>Overview:</h3>
+
+<br/>
 
 <table>
   <thead>
@@ -15,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% @houses.each do |house| %>
+    <% @user.houses.each do |house| %>
         <tr>
           <td><%= link_to house.name, house %></td>
           <td><%= house.market_value %></td>
@@ -33,7 +35,7 @@
   <thead>
     <tr>
       <th>YOY</th>
-    <% @houses.each do |house| %>
+    <% @user.houses.each do |house| %>
       <% house.years.each do |year| %>
         <th><%= year.year %></th>
       <%end%>
@@ -42,7 +44,7 @@
   </thead>
 
   <tbody>
-    <%@houses.each do |house| %>
+    <%@user.houses.each do |house| %>
       <tr>
         <td><%= house.name %></td>
         <% house.years.each do |year| %>
@@ -67,7 +69,7 @@
     </tr>
   </thead>
   <tbody>
-      <% @houses.each do |house| %>
+      <% @user.houses.each do |house| %>
         <% house.years.each do |year| %>
           <% year.weeks.each do |week| %>
             <% if week.closed? != true %>

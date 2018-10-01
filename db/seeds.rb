@@ -13,7 +13,7 @@ require 'csv'
 
 #2007
 
-@user = User.create(email: "a@gmail.com", password: "test")
+@user = User.create(email: "a@gmail.com", password: "test", name: "Alex")
 
 
 @h = House.create!(name: "Bayberry", info: "Bayberry house notes", total_income: 0, total_expenses: 0, market_value: 0, purchase_price: 0, value: 0, user_id: 1)
