@@ -1,10 +1,10 @@
 class Week < ApplicationRecord
   belongs_to :year
-  has_many :renters
+  has_many :renters, through: :week_renters
   has_many :deposits
   has_many :rincomes
 
-  
+
 
   def total_income
     total_income = 0

@@ -1,4 +1,4 @@
 class Renter < ApplicationRecord
-  belongs_to :week
-  has_many :weeks
+
+  has_many :weeks, through: :week_renters
 end

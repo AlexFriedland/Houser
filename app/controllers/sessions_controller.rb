@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     def new
       @user = User.new
     end
-
+    
     def create
       #raise cookies.inspect
       if auth_hash = request.env["omniauth.auth"]
@@ -21,13 +21,12 @@ class SessionsController < ApplicationController
           @user = User.new(email: oauth_email, password: SecureRandom.hex)
           if @user.save
             session[:user_id] = @user.id
-
             redirect_to houses_path
           else
-
-          session[:user_id] = @user.id
-
-          redirect_to houses_path
+            redirect_to 'login'
+          # session[:user_id] = @user.id
+          #
+          # redirect_to houses_path
           end
         end
 
@@ -38,6 +37,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
           if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
+            binding.pry
             redirect_to houses_path
           else
             flash[:message] = "CANNOT FIND THAT EMAIL"
@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
 
     def destroy
       reset_session
-      
+
       redirect_to '/login'
     end
 
