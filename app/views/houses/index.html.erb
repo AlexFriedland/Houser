@@ -1,6 +1,6 @@
 
 
-<h1>Welcome, <% @user %></h1><br>
+<h1>Welcome, <%= @user.name %></h1><br>
 <h3>Overview:</h3>
 
 <br/>
@@ -88,10 +88,9 @@
 <div><%= link_to 'Add New Expense', new_expense_path %></div>
 <div><%= link_to 'Add New Renter', new_renter_path %></div>
 <div><%= link_to 'Add New House', new_house_path %></div>
-
+<br><br>
 
 <footer>
-  <p> Logged in as: <%= current_user.email %> </p>
-  <%= link_to "logout", logout_path %>
+  <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>
 </footer>
 <br>
