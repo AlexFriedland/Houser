@@ -13,11 +13,6 @@
       </div>
     <% end %>
 
-
-    total_expenses integer
-    total_income integer
-    value integer
-
     <div class="form-group">
       <%= f.label :name %>
       <br>
@@ -40,6 +35,12 @@
       <%= f.label :purchase_price, "Purchase Price" %>
       <br>
       <%= f.number_field :purchase_price, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <span> <%= f.label :years, "Check which years you'd like to add to this house: " %>
+
+      <%= f.collection_check_boxes :year_ids, Year.all, :id, :year %></span>
     </div>
 
     <div class="actions">

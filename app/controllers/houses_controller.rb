@@ -22,7 +22,10 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
     binding.pry
+    #if house saves, 
     if @house.save
+      @user = User.find(session[:user_id])
+      @years =
       @user.houses << @house
       redirect_to houses_path
     else
