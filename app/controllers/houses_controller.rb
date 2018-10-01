@@ -10,9 +10,8 @@ class HousesController < ApplicationController
   def index
     #if not logged in can't see this, go back to login
     #if session[:user_id].present?
-
     @user = User.find(session[:user_id])
-
+    binding.pry
   end
 
   def show
@@ -22,7 +21,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
     binding.pry
-    #if house saves, 
+    #if house saves,
     if @house.save
       @user = User.find(session[:user_id])
       @years =
