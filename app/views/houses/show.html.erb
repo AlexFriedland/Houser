@@ -30,20 +30,23 @@
       </tr>
     </thead>
     <tbody>
-      <% @house.year.weeks.each do |week| %>
-      <tr>
-        <td><%= link_to week.date, week %></td>
-        <td><%= week.total_income %></td>
-        <td><%= week.deposits.last.amount ? week.deposits.last.amount : 0 %></td>
-        <td><%= week.deposits.last.notes %> <%= week.renters.last.notes %></td>
-        <td><%= link_to week.renters.first.name, week.renters.first %></td>
-      </tr>
+      <% @house.years.each do |year| %>
+        <% year.weeks.each do |week| %>
+          <tr>
+            <td><%= link_to week.date, week %></td>
+            <td><%= week.total_income %></td>
+            <td><%= week.deposits.last.amount ? week.deposits.last.amount : 0 %></td>
+            <td><%= week.deposits.last.notes %> <%= week.renters.last.notes %></td>
+            <td><%= link_to week.renters.first.name, week.renters.first %></td>
+          </tr>
+        <% end %>
       <% end %>
 
       <tr>
         <td>Total</td>
-        <td> <%= @year.total_income %> </td>
-        <td> <%= @year.total_deposits %></td>
+        <% binding.pry %>
+        <td> <%= @house.years.first.total_income %> </td>
+        <td> <%= @house.years.first.total_deposits %></td>
       </tr>
     </tbody>
   </table>

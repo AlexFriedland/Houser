@@ -16,20 +16,27 @@ class HousesController < ApplicationController
 
   def show
     @house = House.find(params[:id])
+    # binding.pry
   end
 
   def create
     @house = House.new(house_params)
-    binding.pry
     #if house saves,
     if @house.save
       @user = User.find(session[:user_id])
-      if params[:house][:year_ids].each {|y|
-        
-      }
 
+      #logic to find + create new years
+      x = params[:house][:year_ids]
+      x[0] = "0"
+      x.each do |id|
+        y = Year.find_by_id(id)
+        if y != nil
+          @house.years << Year.create(year: y.year, total_income: 0)
+        end
+      end
 
       @user.houses << @house
+      binding.pry
       redirect_to houses_path
     else
       render 'house/new'
