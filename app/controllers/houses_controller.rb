@@ -18,6 +18,11 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
+    if @house.save
+      redirect_to houses_path
+    else
+      render 'house/new'
+    end
   end
 
   def edit
