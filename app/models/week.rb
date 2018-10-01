@@ -1,6 +1,9 @@
 class Week < ApplicationRecord
   belongs_to :year
-  has_many :renters, through: :week_renters
+
+  has_many :week_renters
+  has_many :renters, :through => :week_renters
+
   has_many :deposits
   has_many :rincomes
 

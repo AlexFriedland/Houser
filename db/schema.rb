@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2018_08_30_184056) do
   create_table "week_renters", force: :cascade do |t|
     t.integer "week_id"
     t.integer "renter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["renter_id"], name: "index_week_renters_on_renter_id"
     t.index ["week_id"], name: "index_week_renters_on_week_id"
   end

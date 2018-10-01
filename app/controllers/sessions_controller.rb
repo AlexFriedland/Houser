@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     def new
       @user = User.new
     end
-    
+
     def create
       #raise cookies.inspect
       if auth_hash = request.env["omniauth.auth"]
@@ -37,7 +37,6 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
           if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            binding.pry
             redirect_to houses_path
           else
             flash[:message] = "CANNOT FIND THAT EMAIL"

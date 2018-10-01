@@ -1,0 +1,78 @@
+<%= form_for @house do |f| %>
+    <% if @house.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:
+        </h2>
+
+        <ul>
+        <% @house.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    purchase_price integer
+    total_expenses integer
+    total_income integer
+    value integer
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :info, "Info" %>
+      <br>
+      <%= f.text_field :info, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :market_value, "Market Value" %>
+      <br>
+      <%= f.number_field :market_value, class "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :purchase_price, "Market Value" %>
+      <br>
+      <%= f.number_field :purchase_price, class "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :happiness, "How happy are you? (1-5 scale)" %>
+      <br>
+      <%= f.number_field :happiness, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :nausea, "How nauseous are you? (1-5 scale)" %>
+      <br>
+      <%= f.number_field :nausea, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :tickets, "How many dollars are in your pocket?" %>
+      <br>
+      <%= f.number_field :tickets, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :admin, "Check box if you are a theme park owner" %>
+      <%= f.check_box :admin, class: "form-check-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <br>
+      <%= f.password_field :password, class: "form-control" %>
+
+    <div class="actions">
+      <br/>
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
