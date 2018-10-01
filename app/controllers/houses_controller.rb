@@ -11,7 +11,7 @@ class HousesController < ApplicationController
     #if not logged in can't see this, go back to login
     #if session[:user_id].present?
     @user = User.find(session[:user_id])
-    binding.pry
+    # binding.pry
   end
 
   def show
@@ -24,7 +24,11 @@ class HousesController < ApplicationController
     #if house saves,
     if @house.save
       @user = User.find(session[:user_id])
-      @years =
+      if params[:house][:year_ids].each {|y|
+        
+      }
+
+
       @user.houses << @house
       redirect_to houses_path
     else

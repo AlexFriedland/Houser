@@ -3,6 +3,9 @@ class House < ApplicationRecord
   has_many :years
   belongs_to :user, optional: true
 
+  accepts_nested_attributes_for :years
+
+
   #change this to calc from DB seed
   def show_total_income
 
