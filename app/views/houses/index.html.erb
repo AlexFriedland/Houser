@@ -35,9 +35,9 @@
   <thead>
     <tr>
       <th>YOY</th>
-      <% House.all_years.each do |y| %>
+      <% Year.all.each do |y| %>
         <th>
-          <%= y %>
+          <%= y.year %>
         </th>
       <% end %>
       <!-- <% @user.houses.each do |house| %>

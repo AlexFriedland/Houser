@@ -21,10 +21,8 @@ class House < ApplicationRecord
 
   def self.all_years
     year_arr = []
-    House.all.each do |h|
-      h.years.each do |y|
-        year_arr << y.year
-      end
+    Year.all.each do |y|
+      year_arr << y.year
     end
     year_arr.uniq!
   end
