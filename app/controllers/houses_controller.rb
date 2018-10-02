@@ -31,7 +31,7 @@ class HousesController < ApplicationController
       x.each do |id|
         y = Year.find_by_id(id)
         if y != nil
-          @house.years << Year.create(year: y.year, total_income: 0)
+          @house.years << Year.create!(house_id: @house.id, year: y.year, total_income: 0)
         end
       end
 

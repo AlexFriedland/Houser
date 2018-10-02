@@ -10,9 +10,23 @@ class House < ApplicationRecord
   def show_total_income
 
     self.years.each do |year|
-      self.total_income += year.total_income
+      if self.total_income
+        self.total_income += year.total_income
+      else
+        total_income = 0
+      end
     end
     total_income
+  end
+
+  def self.all_years
+    year_arr = []
+    House.all.each do |h|
+      h.years.each do |y|
+        year_arr << y.year
+      end
+    end
+    year_arr.uniq!
   end
 
 

@@ -35,11 +35,16 @@
   <thead>
     <tr>
       <th>YOY</th>
-    <% @user.houses.each do |house| %>
-      <% house.years.each do |year| %>
-        <th><%= year.year %></th>
-      <%end%>
-    <%end%>
+      <% House.all_years.each do |y| %>
+        <tr>
+          <%= y %>
+        </tr>
+      <% end %>
+      <!-- <% @user.houses.each do |house| %>
+        <% house.years.each do |year| %>
+          <th><%= year.year %></th>
+        <%end%>
+      <%end%> -->
     </tr>
   </thead>
 
