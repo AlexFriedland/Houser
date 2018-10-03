@@ -8,4 +8,15 @@ class User < ApplicationRecord
 
   #name, image, uid
   #
+
+  def all_years
+    ya = []
+    self.houses.each do |h|
+      h.years.each do |y|
+        ya << y.year
+      end
+    end
+    ya.uniq!
+  end
+
 end

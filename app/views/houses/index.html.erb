@@ -35,10 +35,11 @@
   <thead>
     <tr>
       <th>YOY</th>
-      <% x = all_years @user %>
+      <% x = @user.all_years %>
       <% x.each do |y| %>
         <th><%= y %></th>
       <% end %>
+      
       <!-- <% Year.all.each do |y| %>
         <th>
           <%= y.year %>
