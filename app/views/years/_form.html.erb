@@ -1,0 +1,35 @@
+<%= form_for @year do |f| %>
+    <% if @year.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@year.errors.count, "error") %> prohibited this house from being saved:
+        </h2>
+
+        <ul>
+        <% @year.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :year %>
+      <br>
+      <%= f.text_field :year, class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+
+      <span> <%= f.label :houses, "Check which houses you'd like to add to this year: " %>
+
+      <%= f.collection_check_boxes :house_id, House.all, :id, :name %></span>
+    </div>
+
+    <div class="actions">
+      <br/>
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
