@@ -32,18 +32,21 @@ csv.each do |row|
     @y.weeks << Week.create(closed?: true, date: "#{row['Rental Week']}")
     week = @y.weeks.last
 
-    week.renters << Renter.new(week_id: week.id, name: row['Renter'])
-    week.week_renters << WeekRenter.new(week_id: week.id, renter_id: week.renters.last.id)
+    week.renters << Renter.create!(week_id: week.id, name: row['Renter'])
+    week.week_renters << WeekRenter.create!(week_id: week.id, renter_id: week.renters.last.id)
 
-    week.deposits << Deposit.new(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true)
+    week.deposits << Deposit.create!(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true)
 
-    x = Rincome.count
-    week.rincomes << Rincome.new(id: x+=1, week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
 
-    week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+    #start here
+    week.rincomes << Rincome.create!(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
+    week.payments << Payment.create!(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.payments.last.rincomes << week.rincomes.last
 
-    total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
+
+    week.rincomes.last.destroy
+
+    total_income += week.rincomes.last.amount #if week.rincomes.last.amount > 0
     week.save
   end
 end
@@ -52,7 +55,7 @@ end
 csv_text = nil
 csv = nil
 
-
+binding.pry
 
 #------------------
 
