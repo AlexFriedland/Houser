@@ -1,3 +1,3 @@
 class Payment < ApplicationRecord
-  belongs_to :rincome
+  has_many :rincomes
 end

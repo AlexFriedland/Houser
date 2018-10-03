@@ -1,5 +1,6 @@
 class Rincome < ApplicationRecord
   belongs_to :week
-  has_many :payments
+  belongs_to :payment
+  
 
 end
