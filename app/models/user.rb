@@ -16,7 +16,7 @@ class User < ApplicationRecord
         ya << y.year
       end
     end
-    ya.uniq!
+    return ya.uniq!
   end
-
+  
 end

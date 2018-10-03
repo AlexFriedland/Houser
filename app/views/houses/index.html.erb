@@ -35,23 +35,20 @@
   <thead>
     <tr>
       <th>YOY</th>
-      <% x = @user.all_years %>
+      <% x = [] %>
+      <% @user.houses.each do |h| %>
+        <% h.years.each do |y| %>
+          <% x << y.year %>
+        <% end %>
+      <% end %>
+
       <% x.each do |y| %>
         <th><%= y %></th>
       <% end %>
-      
-      <!-- <% Year.all.each do |y| %>
-        <th>
-          <%= y.year %>
-        </th>
-      <% end %> -->
-
-      <!-- <% @user.houses.each do |house| %>
-        <% house.years.each do |year| %>
-          <th><%= year.year %></th>
-        <%end%>
-      <%end%> -->
-
+    </tr>
+    <tr>
+      <!-- WHY NOT WORK BATMAN!?!?!?!? -->
+      <% x = all_years @user %>
     </tr>
   </thead>
 

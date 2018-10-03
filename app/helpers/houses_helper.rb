@@ -1,4 +1,5 @@
 module HousesHelper
+
   def all_years(user)
     year_arr = []
     user.houses.each do |h|
@@ -7,6 +8,6 @@ module HousesHelper
       end
     end
     year_arr.uniq!
-    binding.pry
   end
+
 end

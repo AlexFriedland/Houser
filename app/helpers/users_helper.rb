@@ -7,6 +7,7 @@ module UsersHelper
         year_arr << y.year
       end
     end
+    binding.pry
     year_arr.uniq!
   end
 

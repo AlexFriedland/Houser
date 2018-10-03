@@ -18,5 +18,5 @@ class ApplicationController < ActionController::Base
 
   #methods built in controllers don't permeate to actionview of code
   #can't call this in html.erb unless declared as helper_method
-  helper_method :current_user
+  helper_method :current_user, :logged_in?
 end

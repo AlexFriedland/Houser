@@ -1,0 +1,16 @@
+<% x = all_years(@user) %>
+<% x.each do |y| %>
+  <th><%= y %></th>
+<% end %>
+
+<% Year.all.each do |y| %>
+  <th>
+    <%= y.year %>
+  </th>
+<% end %>
+
+<% @user.houses.each do |house| %>
+  <% house.years.each do |year| %>
+    <th><%= year.year %></th>
+  <%end%>
+<%end%>

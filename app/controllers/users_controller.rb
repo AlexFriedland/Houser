@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  helper_method :all_years
 
   def new
     @user = User.new
