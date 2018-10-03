@@ -5,25 +5,25 @@ class YearsController < ApplicationController
   end
 
   def create
-    @house = House.new(house_params)
-    #if house saves,
-    if @house.save
-      @user = User.find(session[:user_id])
-
-      #logic to find + create new years
-      x = params[:house][:year_ids]
-      x[0] = "0"
-      x.each do |id|
-        y = Year.find_by_id(id)
-        if y != nil
-          @house.years << Year.create!(house_id: @house.id, year: y.year, total_income: 0)
+    #create year by name
+    binding.pry
+    x = params[:year][:year]
+    if x.to_i.is_a?(Integer) && x.length == 4
+      #add it to houses
+      x = params[:year][:house_id]
+        x.each do |h_id|
+          if h_id != ""
+            @year = Year.new(year: params[:year][:year])
+            @year.house_id = h_id
+            @year.total_income = 0
+            @year.save
+          end
         end
-      end
 
-      @user.houses << @house
-      binding.pry
+        binding.pry
       redirect_to houses_path
     else
+      @year.errors[:valid] = "Enter a valid year"
       render 'house/new'
     end
   end
