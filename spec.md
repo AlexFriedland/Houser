@@ -1,4 +1,4 @@
-[] Include at least one has_many, at least one belongs_to, and at least one has_many :through relationship
+[x] Include at least one has_many, at least one belongs_to, and at least one has_many :through relationship
 
 • Include a many-to-many relationship with a model acting as a join table. That join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
