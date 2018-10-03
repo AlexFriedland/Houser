@@ -37,7 +37,9 @@ csv.each do |row|
 
     week.deposits << Deposit.new(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true)
 
-    week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
+    x = Rincome.count
+    week.rincomes << Rincome.new(id: x+=1, week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
+
     week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
     week.payments.last.rincomes << week.rincomes.last
 

@@ -1,6 +1,6 @@
 class Rincome < ApplicationRecord
-  belongs_to :week
-  belongs_to :payment
-  
+  belongs_to :week, optional: true
+  belongs_to :payment, optional: true
+
 
 end
