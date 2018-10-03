@@ -39,7 +39,7 @@ csv.each do |row|
 
     week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
     week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.payments.last.rincome << week.rincomes.last
+    week.payments.last.rincomes << week.rincomes.last
 
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
     week.save
@@ -79,7 +79,7 @@ csv.each do |row|
 
     week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
     week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.payments.last.rincome << week.rincomes.last
+    week.payments.last.rincomes << week.rincomes.last
 
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
 
@@ -127,7 +127,7 @@ csv.each do |row|
 
     week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
     week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.payments.last.rincome << week.rincomes.last
+    week.payments.last.rincomes << week.rincomes.last
 
 
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
