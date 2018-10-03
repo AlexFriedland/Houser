@@ -70,10 +70,12 @@ ActiveRecord::Schema.define(version: 2018_08_30_184056) do
 
   create_table "rincomes", force: :cascade do |t|
     t.integer "week_id"
+    t.integer "payment_id"
     t.integer "amount"
     t.integer "percentPaid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["payment_id"], name: "index_rincomes_on_payment_id"
     t.index ["week_id"], name: "index_rincomes_on_week_id"
   end
 

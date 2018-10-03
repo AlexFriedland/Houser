@@ -7,6 +7,9 @@ class Week < ApplicationRecord
   has_many :deposits
   has_many :rincomes
 
+  has_many :payments, through: :rincomes
+
+
 
 
   def total_income
