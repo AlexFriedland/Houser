@@ -73,9 +73,14 @@ csv.each do |row|
     week = @y.weeks.last
 
     week.renters << Renter.new(week_id: week.id, name: row['Renter'])
-    week.deposits << Deposit.new(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true, notes: "#{row['Misc']} #{row['Description']}")
-    week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
-    week.rincomes.last.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: nil, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+    week.week_renters << WeekRenter.new(week_id: week.id, renter_id: week.renters.last.id)
+
+    week.deposits << Deposit.new(week_id: week.id, amount: row['Deposit'].split(" ")[1].gsub(",", "").split(".")[0], returned: true)
+
+    week.rincomes << Rincome.new(week_id: week.id, amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0], percentPaid: 100)
+    week.payments << Payment.new(rincome_id: week.rincomes.last.id, payment_type: row['Paid'], amount: row['Rental'].split(" ")[1].gsub(",", "").split(".")[0])
+    week.payments.last.rincome << week.rincomes.last
+
     total_income += week.rincomes.last.amount if week.rincomes.last.amount > 0
 
     week.save
