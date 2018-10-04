@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # validates :email, uniqueness: true
+
   validates :password, presence: true
   :has_secure_password
   has_secure_password
@@ -18,5 +19,5 @@ class User < ApplicationRecord
     end
     return ya.uniq!
   end
-  
+
 end
