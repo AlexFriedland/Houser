@@ -1,4 +1,6 @@
 class Year < ApplicationRecord
+  validates :year, presence: true
+  
   belongs_to :house
   has_many :weeks
 

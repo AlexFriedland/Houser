@@ -5,8 +5,8 @@ class YearsController < ApplicationController
   end
 
   def create
+    @year = Year.new
     #create year by name
-    binding.pry
     x = params[:year][:year]
     if x.to_i.is_a?(Integer) && x.length == 4
       #add it to houses
@@ -19,12 +19,10 @@ class YearsController < ApplicationController
             @year.save
           end
         end
-
-        binding.pry
       redirect_to houses_path
     else
-      @year.errors[:valid] = "Enter a valid year"
-      render 'house/new'
+      render 'years/new'
+      binding.pry
     end
   end
 
