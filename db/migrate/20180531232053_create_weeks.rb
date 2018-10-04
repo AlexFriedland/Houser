@@ -6,6 +6,7 @@ class CreateWeeks < ActiveRecord::Migration[5.2]
       t.string :date
       t.boolean :closed?
       t.integer :misc_charges
+      t.string :notes
 
       t.timestamps null: false
     end
