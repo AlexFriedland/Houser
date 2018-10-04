@@ -9,6 +9,16 @@ class WeeksController < ApplicationController
   end
 
   def create
+    binding.pry
+
+    # add year
+    # add house
+    # deposit
+    # payment
+    # renter
+
+    # @week = Week.new(week_params)
+    # redirect_to week_path(@week)
   end
 
 end
