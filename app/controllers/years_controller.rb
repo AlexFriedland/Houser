@@ -21,6 +21,7 @@ class YearsController < ApplicationController
         end
       redirect_to houses_path
     else
+      @year.errors[:year] << "year must be proper format"
       render 'years/new'
       binding.pry
     end
