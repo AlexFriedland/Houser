@@ -13,7 +13,7 @@ class HousesController < ApplicationController
     @user = User.find(session[:user_id])
     # binding.pry
   end
-
+  
   def show
     @house = House.find(params[:id])
     # binding.pry
