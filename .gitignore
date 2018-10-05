@@ -15,7 +15,9 @@
 /db/*.sqlite3-journal
 
 # Ignore lib seed file
-/lib/seeds
+/lib/seeds/Bayberry07.csv
+/lib/seeds/Bayberry08.csv
+/lib/seeds/Bayberry09.csv
 
 # Ignore all logfiles and tempfiles.
 /log/*
