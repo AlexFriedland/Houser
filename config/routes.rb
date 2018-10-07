@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   # end
   # resources :comments, only: [:show, :edit, :update, :destroy]
 
-  
-
+  resources :houses do
+    resources :years, shallow: true
+  end
 
 
   resources :payments
@@ -19,10 +20,9 @@ Rails.application.routes.draw do
   resources :deposits
   resources :renters
   resources :weeks
-  resources :years
   resources :incomes
   resources :expenses
-  resources :houses
+
   resources :sessions
   resources :users
 
