@@ -58,7 +58,7 @@
         <td><%= house.name %></td>
         <% house.years.each do |year| %>
         <% #binding.pry %>
-          <td> <%= link_to year.total_income, year %> </td>
+          <td> <%= link_to year.total_income, house_year_url(year.house.id, year.id) %> </td>
         <% end %>
       </tr>
     <%end%>
