@@ -8,7 +8,9 @@ payment -> rincome <- week
 
 user, house, etc
 
-[] You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+[x] You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
+
+used throughout, seeds, controllers
 
 [x] Your application must provide standard user authentication, including signup, login, logout, and passwords.
 
@@ -18,11 +20,13 @@ did that
 
 did that
 
-[] You must include and make use of a nested resource with the appropriate RESTful URLs.
+[x] You must include and make use of a nested resource with the appropriate RESTful URLs.
 
 • You must include a nested new route with form that relates to the parent resource
 
 • You must include a nested index or show route
+
+did that for house->years
 
 [x] Your forms should correctly display validation errors. a. Your fields should be enclosed within a fields_with_errors class b. Error messages describing the validation failures must be present within the view.
 
