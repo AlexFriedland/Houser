@@ -23,7 +23,6 @@ class YearsController < ApplicationController
     else
       @year.errors[:year] << "year must be proper format"
       render 'years/new'
-      binding.pry
     end
   end
 

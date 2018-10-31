@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   # resources :comments, only: [:show, :edit, :update, :destroy]
 
   resources :houses do
-    resources :years, only: [:show]
+    resources :years, only: [:show, :edit, :update, :destroy]
   end
 
-  resources :years, only: [:new]
+  resources :years, only: [:new, :create]
 
 
   resources :payments
