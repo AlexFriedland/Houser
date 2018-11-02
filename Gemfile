@@ -30,7 +30,9 @@ gem 'rails-data-explorer'
 #excel import
 gem 'rubyXL'
 
-gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+# gem "bootstrap", ">= 4.1.2"
+
+gem 'bootstrap', '~> 4.1', '>= 4.1.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 
