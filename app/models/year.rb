@@ -1,6 +1,6 @@
 class Year < ApplicationRecord
   validates :year, presence: true
-  
+
   belongs_to :house
   has_many :weeks
 
@@ -29,6 +29,14 @@ class Year < ApplicationRecord
       }
     }
     i
+  end
+
+  def self.twoThouSeven
+    where(year: '2007')
+  end
+
+  def self.my_years
+    where(:year.house_id.user_id => session[:user_id])
   end
 
 end
