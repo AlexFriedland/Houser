@@ -31,12 +31,36 @@ class Year < ApplicationRecord
     i
   end
 
-  def self.twoThouSeven
-    where(year: '2007')
+  def self.outstanding
+    where("total_income > 100000")
+  end
+
+  def self.years
+    where("year > 1")
+  end
+
+  def self.years_and_mine
+    x = []
+    years.each do |y|
+      if y.house.user_id = session[:user_id]
+        x << y
+      end
+    end
+  end
+
+  def self.mine
+    where(year: year.house.user.user_id = session[:user_id])
   end
 
   def self.my_years
-    where(:year.house_id.user_id => session[:user_id])
+    @user = User.find_by_id(session[:user_id])
+    @houses = House.all
+
+    where(
+      @houses.each do |house|
+        house.user.user_id = session[:user_id]
+      end
+    )
   end
 
 end

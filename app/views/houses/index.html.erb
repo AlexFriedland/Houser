@@ -57,7 +57,6 @@
       <tr>
         <td><%= house.name %></td>
         <% house.years.each do |year| %>
-        <% #binding.pry %>
           <td> <%= link_to year.total_income, house_year_url(year.house.id, year.id) %> </td>
         <% end %>
       </tr>
@@ -104,3 +103,7 @@
   <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>
 </footer>
 <br>
+
+<div>
+  <% #Year.years_and_mine %>
+</div>
