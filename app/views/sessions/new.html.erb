@@ -3,7 +3,7 @@
 <h1>Login</h1>
 
 <%= form_tag(sessions_path, method: :post) do %>
-<%= render "sessions/error_messages", :target => @user %>
+
   <%= text_field_tag :email, '', :placeholder => "email:" %>
   <%= password_field_tag :password, '', placeholder: "password" %>
   <%= submit_tag("submit") %>
