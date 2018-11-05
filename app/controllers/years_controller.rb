@@ -8,13 +8,7 @@ class YearsController < ApplicationController
     @year = Year.new
     #create year by name
     x = params[:year][:year]
-
-    binding.pry
-
-    if params[:year][:house_id] == nil
-      @year.errors[:year] << "must select at least one house house"
-      render 'years/new'
-    elsif x.to_i.is_a?(Integer) && x.length == 4
+    if x.to_i.is_a?(Integer) && x.length == 4 && params[:year][:house_id][1]
       #add it to houses
       x = params[:year][:house_id]
         x.each do |h_id|
@@ -27,7 +21,14 @@ class YearsController < ApplicationController
         end
       redirect_to houses_path
     else
-      @year.errors[:year] << "year must be proper format"
+      x = params[:year][:year]
+      if !x.to_i.is_a?(Integer) || !x.length == 4
+        @year.errors[:year] << "year must be proper format"
+      end
+      if !params[:year][:house_id][1]
+        @year.errors[:year] << "must select a house"
+      end
+      binding.pry
       render 'years/new'
     end
   end
