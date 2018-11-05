@@ -23,27 +23,26 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to houses_path
           else
+            @user = User.new
+            @user.errors[:login] << "username or password incorrect or unrecognized"
             redirect_to 'login'
           # session[:user_id] = @user.id
           #
           # redirect_to houses_path
           end
         end
-
-
       else
-
         #normal login
         @user = User.find_by(email: params[:email])
           if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to houses_path
           else
-            flash[:message] = "CANNOT FIND THAT EMAIL"
+            @user = User.new
+            @user.errors[:login] << "username or password incorrect or unrecognized"
             render 'sessions/new'
           end
         end
-
     end
 
     def destroy
