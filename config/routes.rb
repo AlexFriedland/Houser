@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   # resources :comments, only: [:show, :edit, :update, :destroy]
 
   resources :houses do
-    resources :years, only: [:show, :edit, :update, :destroy]
+    resources :years
   end
 
-  resources :years, only: [:new, :create]
+  # resources :years, only: [:new, :create]
 
 
   resources :payments
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   # resources :users, :only => [:new, :create, :show]
 
   get 'dash', to: 'houses#dash'
+
 
   root :to => 'houses#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

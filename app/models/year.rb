@@ -48,6 +48,8 @@ class Year < ApplicationRecord
     end
   end
 
+  
+  #current_user.id
   def self.mine
     where(year: year.house.user.user_id = session[:user_id])
   end

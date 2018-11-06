@@ -2,35 +2,27 @@ class YearsController < ApplicationController
 
   def new
     @year = Year.new
+    @house = House.find_by_id(params[:house_id])
+
   end
 
   def create
-    @year = Year.new
+
+    @house = House.find_by_id(params[:house_id])
+
+    @year = @house.years.build(year: params[:year][:year])
     #create year by name
     x = params[:year][:year]
-    if x.to_i.is_a?(Integer) && x.length == 4 && params[:year][:house_id][1]
-      #add it to houses
-      x = params[:year][:house_id]
-        x.each do |h_id|
-          if h_id != ""
-            @year = Year.new(year: params[:year][:year])
-            @year.house_id = h_id
-            @year.total_income = 0
-            @year.save
-          end
-        end
-      redirect_to houses_path
-    else
-      x = params[:year][:year]
-      if !x.to_i.is_a?(Integer) || !x.length == 4
-        @year.errors[:year] << "year must be proper format"
+    #x.to_i.is_a?(Integer) && x.length == 4 && params[:year][:house_id][1]
+      if x.to_i.is_a?(Integer) && x.length == 4
+        @year.save
+        redirect_to house_path(@house)
+      else
+        @year.errors[:year] << " must be in proper format"
+        binding.pry
+        redirect_to new_house_year_path [@house, @year]
       end
-      if !params[:year][:house_id][1]
-        @year.errors[:year] << "must select a house"
-      end
-      binding.pry
-      render 'years/new'
-    end
+
   end
 
   def show
