@@ -5,6 +5,9 @@ class HousesController < ApplicationController
 
   def new
     @house = House.new
+
+    # remove layout can help w js
+    # render 'comments/index', :layout => false
   end
 
   def index
@@ -13,7 +16,7 @@ class HousesController < ApplicationController
     @user = User.find(session[:user_id])
     # binding.pry
   end
-  
+
   def show
     @house = House.find(params[:id])
     # binding.pry
