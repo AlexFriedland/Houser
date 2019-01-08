@@ -32,19 +32,23 @@
 #   });
 # });
 
+#REFACTORED:
+$(function() {
+  $("a.load_comments").on("click", function(e){
+    $.get(this.href).success(function(response){
+      $("div.comments").html(response)
+      })
+      e.preventDefault();
+    })
+  })
+
 
 # CONVERT TO CoffeeScript
 
 $ ->
   $('a.load_comments').on 'click', (e) ->
-    $.ajax(
-      method: 'GET'
-      url: @href).done((data) ->
-      alert 'Data saved: ' + data
-      $('div.comments').html data
-      return
-    ).error (notNeeded) ->
-      alert 'we broke!'
+    $.get(@href).success (response) ->
+      $('div.comments').html response
       return
     e.preventDefault()
     return
