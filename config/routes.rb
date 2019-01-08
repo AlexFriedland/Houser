@@ -34,8 +34,11 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  #change this later(?)
-  resources :users, :only => [:new, :create, :show]
+  # change this later(?)
+  # , :only => [:new, :create, :show]
+  resources :users do
+    resources :comments
+  end
 
   get 'dash', to: 'houses#dash'
 
