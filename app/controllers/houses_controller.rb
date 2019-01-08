@@ -1,5 +1,11 @@
 require 'pry'
 
+=begin
+<!-- FIX THIS LINK
+<div><%= link_to 'Add New Year', new_house_year_path %></div>
+-->
+=end
+
 class HousesController < ApplicationController
   before_action :authentication_required
 
