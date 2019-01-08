@@ -30,6 +30,7 @@ class HousesController < ApplicationController
     #if session[:user_id].present?
     @user = User.find(session[:user_id])
     # binding.pry
+    @comment = User.comments.build
   end
 
   def show
