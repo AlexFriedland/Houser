@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @comment = @user.comments.find(params[:id])
+
+    # respond_to do |format|
+    #   format.html {render 'index.html', layout: false}
+    #   format.js {render 'index.js', layout: false}
+    # end
+
   end
 
   def new

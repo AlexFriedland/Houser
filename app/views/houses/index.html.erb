@@ -116,10 +116,14 @@
 </div>
 <br>
 
-<h4>submit feedback to the devs:</h4>
-<br>
 
-<%= form_for [@user, @comment] do |f| %>
-  <%= f.text_area :body %>
-  <p class="comment_submit"><%= f.submit %></p>
-<% end %>
+<!-- ajaxify, remove action, make alert work -->
+<div class="submit_comment">
+  <h4>submit feedback to the devs:</h4>
+  <br>
+
+  <%= form_for [@user, @comment] do |f| %>
+    <%= f.text_area :body %>
+    <p class="comment_submit"><%= f.submit %></p>
+  <% end %>
+</div>

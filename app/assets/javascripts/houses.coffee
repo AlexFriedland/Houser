@@ -75,9 +75,15 @@
     #   })
 
 
+
 # CONVERT TO CoffeeScript
 
 $ ->
+  $('p.comment_submit').on 'click', (e) ->
+    alert 'your comment has been submitted to the devs'
+    return
+  return
+  
   $('a.load_comments').on 'click', (e) ->
     $.get(@href).success (response) ->
       $('div.comments').html response
@@ -85,6 +91,14 @@ $ ->
     e.preventDefault()
     return
   return
+
+# $(function() {
+#    $("p.comment_submit").on("click", function(e){
+#      alert("your comment has been submitted to the devs")
+#    })
+# })
+
+
 
   #@ 18:20
   #load order - link has to exist when JS is loaded in the page
