@@ -14,6 +14,9 @@ class HousesController < ApplicationController
 
     # remove layout can help w js
     # render 'comments/index', :layout => false
+
+    # render json
+    # render :json => @house
   end
 
   def index

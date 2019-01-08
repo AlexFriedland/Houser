@@ -32,7 +32,7 @@
 #   });
 # });
 
-#REFACTORED:
+#REFACTORED: (requesting html)
 $(function() {
   $("a.load_comments").on("click", function(e){
     $.get(this.href).success(function(response){
@@ -41,6 +41,10 @@ $(function() {
       e.preventDefault();
     })
   })
+
+  #what if JSON?
+
+  
 
 
 # CONVERT TO CoffeeScript
