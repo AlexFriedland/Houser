@@ -93,12 +93,15 @@
 <br><br><br>
 
 <div><%= link_to 'Add New Week', new_week_path %></div>
-
-
 <div><%= link_to 'Add New Expense', new_expense_path %></div>
 <div><%= link_to 'Add New Renter', new_renter_path %></div>
 <div><%= link_to 'Add New House', new_house_path %></div>
 <br><br>
+
+<!-- COMMENTS FROM HOUSES.COFFEE, whatever is loaded will be injected here -->
+<div class="comments">
+
+</div>
 
 <footer>
   <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>

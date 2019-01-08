@@ -17,39 +17,38 @@
 
 #load comments from a post // load values from a house
 
-# $(function(){
-#     $("a.load_comments").on("click", function(e){
-#       #fire some ajax + load response into page html
-#       $.ajax({
-#         method: "GET",
-#         #use href attr of link as url for request
-#         url: this.href,
-#       }).done(function(data) {
-#         alert("Data saved: " + data);
-#
-#         #WOOPSIE
-#         $("body").append(data)
-#         });
-#
-#       e.preventDefault();
-#     })
-# })
+# $(function() {
+#   $('a.load_comments').on('click', function(e) {
+#     $.ajax({
+#       method: 'GET',
+#       url: this.href
+#     }).done(function(data) {
+#       alert('Data saved: ' + data);
+#       $('div.comments').html(data);
+#     }).error(function(notNeeded) {
+#       alert('we broke!');
+#     });
+#     e.preventDefault();
+#   });
+# });
 
 
 # CONVERT TO CoffeeScript
 
-$('a.load_comments').on 'click', (e) ->
+$ ->
+  $('a.load_comments').on 'click', (e) ->
     $.ajax(
       method: 'GET'
-      url: @href).done (data) ->
+      url: @href).done((data) ->
       alert 'Data saved: ' + data
-      $('body').append data
+      $('div.comments').html data
+      return
+    ).error (notNeeded) ->
+      alert 'we broke!'
       return
     e.preventDefault()
     return
   return
-
-
 
   #@ 18:20
   #load order - link has to exist when JS is loaded in the page
