@@ -13,22 +13,41 @@
 
 #just pass anonymous $(function)
 
+
+
 #load comments from a post // load values from a house
-$(function(){
-    $("a.load_comments").on("click", function(e){
-      #fire some ajax + load response into page html
-      $.ajax({
-        method: "GET",
-        #use href attr of link as url for request
-        url: this.href,
-      }).done(function(data) {
-        alert("Data saved: " + data);
-        });
 
-      e.preventDefault();
-    })
-})
+# $(function(){
+#     $("a.load_comments").on("click", function(e){
+#       #fire some ajax + load response into page html
+#       $.ajax({
+#         method: "GET",
+#         #use href attr of link as url for request
+#         url: this.href,
+#       }).done(function(data) {
+#         alert("Data saved: " + data);
+#
+#         #WOOPSIE
+#         $("body").append(data)
+#         });
+#
+#       e.preventDefault();
+#     })
+# })
 
+
+# CONVERT TO CoffeeScript
+
+$('a.load_comments').on 'click', (e) ->
+    $.ajax(
+      method: 'GET'
+      url: @href).done (data) ->
+      alert 'Data saved: ' + data
+      $('body').append data
+      return
+    e.preventDefault()
+    return
+  return
 
 
 
