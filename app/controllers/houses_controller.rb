@@ -17,6 +17,12 @@ class HousesController < ApplicationController
 
     # render json
     # render :json => @house
+
+    # this is implicit in rails, rails responds to the language response requested by page. hence returning the proper type of code
+    # respond_to do |format|
+    #   format.html {render 'index.html', :layout => false}
+    #   format.js {render 'index.js'}
+    # end
   end
 
   def index
