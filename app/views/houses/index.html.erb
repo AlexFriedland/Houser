@@ -92,10 +92,13 @@
 
 <br><br><br>
 
+<div><%#= link_to 'Add New Year', new_house_year_path %></div>
 <div><%= link_to 'Add New Week', new_week_path %></div>
 <div><%= link_to 'Add New Expense', new_expense_path %></div>
 <div><%= link_to 'Add New Renter', new_renter_path %></div>
 <div><%= link_to 'Add New House', new_house_path %></div>
+
+
 <br><br>
 
 <!-- COMMENTS FROM HOUSES.COFFEE, whatever is loaded will be injected here -->
@@ -111,3 +114,14 @@
 <div>
   <% #Year.years_and_mine %>
 </div>
+
+<h4>submit feedback:</h4>
+
+<form class="" action="index.html" method="post">
+  <textarea name="name" rows="8" cols="80">
+
+  </textarea>
+
+
+  <input type="submit" name="" value="">
+</form>
