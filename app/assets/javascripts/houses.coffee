@@ -32,19 +32,47 @@
 #   });
 # });
 
-#REFACTORED: (requesting html)
-$(function() {
-  $("a.load_comments").on("click", function(e){
-    $.get(this.href).success(function(response){
-      $("div.comments").html(response)
-      })
-      e.preventDefault();
-    })
-  })
+# REFACTORED: (requesting html)
+# $(function() {
+#   $("a.load_comments").on("click", function(e){
+#     $.get(this.href).success(function(response){
+#       $("div.comments").html(response)
+#       })
+#       e.preventDefault();
+#     })
+#   })
 
-  #what if JSON?
+  #what if JSON? go to LINK.json
+  # $(function(){
+  #   $("a.load_comments").on("click", function(e){
+  #
+  #     $.get(this.href).success(function(json){
+  #       debugger; #call json or json.content[1] in console
+  #
+  #       #clear any ol elements
+  #       $ol = $("div.comments ol")
+  #       $ol.html("")
+  #       #iterate over each json element and append li to ol
+  #       json.forEach(function(comment){
+  #         $ol.append("<li>" + comment.content + "</li>")
+  #         })
+  #       })
+  #
+  #     e.preventDefault();
+  #     })
+  #   })
 
-  
+
+    # ask server for what to do via client side ajax ie loaded scripts
+    # when click fire ajax request to server to find js instructions
+
+    # $("a.load_comments").on("click", function(e){
+    #   $.ajax({
+    #     url: this.href,
+    #     dataType: 'script'
+    #     })
+    #     e.preventDefault()
+    #   })
 
 
 # CONVERT TO CoffeeScript

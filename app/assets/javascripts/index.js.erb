@@ -1,0 +1,10 @@
+// alert("Hello from Rails")
+
+// we're in rails stack so access to instance variables
+// $("div.comments").append('<%= @comments.first.content %>')
+
+// still need to return js valid objects
+
+var html = "<%= j(render('comments/comments')) %>"
+
+$("div.comments").append('html')
