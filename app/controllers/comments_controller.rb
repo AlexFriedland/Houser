@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_comment_path(@user.id, @comment.id)
     else
-      render 'index'
+      redirect_to 'root'
     end
   end
 
