@@ -106,7 +106,9 @@
           data: data,
           success: function(response){
             # debugger
-            
+            $ol = $("div.comments ol")
+            $ol.append(response);
+
           }
         })
 

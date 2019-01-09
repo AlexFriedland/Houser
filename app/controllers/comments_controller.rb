@@ -23,7 +23,13 @@ class CommentsController < ApplicationController
     @comment = @user.comments.build(user_id: session[:user_id], body: params[:comment][:body])
 
     if @comment.save
-      redirect_to user_comment_path(@user.id, @comment.id)
+
+      # respond_to do |format|
+      #   format.html {redirect_to @post}
+      #   format.js {render 'index.js', :layout => false}
+      # end
+
+      redirect_to user_comment_path(@user.id, @comment.id), layout: false
     else
       redirect_to 'root'
     end
