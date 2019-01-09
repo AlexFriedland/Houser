@@ -82,39 +82,39 @@
 
     # submit via AJAX
 
-    $(function(){
-      $("new_comment").on("click", function(e){
-        # url to submit POST request
-        # form data
-
-        url = this.action
-        data = this.comment_body
-        debugger;
-
-        data2 = {
-          authenticity_token: $("input[name='authenticity_token']").val(),
-          'comment': {
-            'content': $("#comment_content").val()
-          }
-        }
-
-        # submit post request w
-        # low level
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: data,
-          success: function(response){
-            # debugger
-            $ol = $("div.comments ol")
-            $ol.append(response);
-
-          }
-        })
-
-        e.preventDefault()
-        })
-      })
+    # $(function(){
+    #   $("new_comment").on("click", function(e){
+    #     # url to submit POST request
+    #     # form data
+    #
+    #     url = this.action
+    #     data = this.comment_body
+    #     debugger;
+    #
+    #     data2 = {
+    #       authenticity_token: $("input[name='authenticity_token']").val(),
+    #       'comment': {
+    #         'content': $("#comment_content").val()
+    #       }
+    #     }
+    #     # submit post request w
+    #     # low level
+    #     $.ajax({
+    #       # _method for delete / patch things browsers dont support
+    #       type: ($("input[name="_method"]").val() || this.method),
+    #       url: url,
+    #       data: data,
+    #       success: function(response){
+    #         $("comment_content").val("");
+    #         # debugger
+    #         $ol = $("div.comments ol")
+    #         $ol.append(response);
+    #       }
+    #     })
+    #
+    #     e.preventDefault()
+    #     })
+    #   })
 
       # $ ->
       #   $('p.comment_submit').on 'click', (e) ->
