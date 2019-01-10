@@ -26,9 +26,13 @@ class HousesController < ApplicationController
   end
 
   def index
+    @user = User.find(session[:user_id])
+    #comments stuff
+    @comments = @user.comments
+    @comment = @user.comments.build
     #if not logged in can't see this, go back to login
     #if session[:user_id].present?
-    @user = User.find(session[:user_id])
+
     # binding.pry
     @comment = Comment.new(user_id: @user.id)
   end

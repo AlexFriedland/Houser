@@ -2,6 +2,11 @@ require 'pry'
 
 class CommentsController < ApplicationController
 
+  def index
+    # @user = User.find_by_id(session[:user_id])
+    @comments = @user.comments
+  end
+
   def show
     @user = User.find(params[:user_id])
     @comment = @user.comments.find(params[:id])
