@@ -122,7 +122,7 @@
   <h4>submit feedback to the devs:</h4>
   <br>
 
-  <%= form_for ([@user, @comment], :remote => true) do |f| %>
+  <%= form_with(model: [@user, @comment]) do |f| %>
     <%= f.text_area :body %>
     <p class="comment_submit"><%= f.submit %></p>
   <% end %>
@@ -130,5 +130,5 @@
 
 <!-- remote-true -->
 <div class="comments">
-  <%= render 'comments/_index' %>
+  <%= render 'comments/index' %>
 </div>
