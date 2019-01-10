@@ -59,7 +59,7 @@ class HousesController < ApplicationController
       end
 
       @user.houses << @house
-      binding.pry
+      # binding.pry
       redirect_to houses_path
     else
       render 'house/new'

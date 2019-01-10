@@ -50,7 +50,7 @@ $(function(){
 })
 
 
-Submit Comments via AJAX - Soon to be replaced by remote true
+// Submit Comments via AJAX - Soon to be replaced by remote true
 $(function(){
   $("#new_comment").on("submit", function(e){
     // 1. we need the URL to submit the POST request too

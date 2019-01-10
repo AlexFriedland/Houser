@@ -139,7 +139,7 @@ $ ->
     alert 'your comment has been submitted to the devs'
     url = @action
     data = @comment_body
-    debugger
+    # debugger
     data2 =
       authenticity_token: $('input[name=\'authenticity_token\']').val()
       'comment': 'content': $('#comment_content').val()
