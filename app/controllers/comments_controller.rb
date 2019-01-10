@@ -34,10 +34,10 @@ class CommentsController < ApplicationController
 
     if @comment.save
 
-      # respond_to do |format|
-      #   format.html {redirect_to @post}
-      #   format.js {render 'index.js', :layout => false}
-      # end
+      respond_to do |format|
+        format.html {redirect_to @comment}
+        format.js {render 'index.js', :layout => false}
+      end
 
       render 'create.js', :layout => false
       # redirect_to user_comment_path(@user.id, @comment.id), layout: false
