@@ -1,13 +1,7 @@
 // manually trigger ajax - client side - jquery, angular, react, ember
 //   a. hijack click of load comments
 //   b.
-//
-//
-//
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
-//
+
 // # instead of:
 //
 // # $(document).ready(function(e){
@@ -18,7 +12,6 @@
 // # })
 //
 // #just pass anonymous $(function)
-//
 //
 //
 // #load comments from a post // load values from a house
@@ -94,6 +87,8 @@
 //     #     data = this.comment_body
 //     #     debugger;
 //     #
+//           here we rewrite the params hash in js by getting inputs from the form
+
 //     #     data2 = {
 //     #       authenticity_token: $("input[name='authenticity_token']").val(),
 //     #       'comment': {
@@ -119,58 +114,38 @@
 //     #     })
 //     #   })
 //
-//       # $ ->
-//       #   $('p.comment_submit').on 'click', (e) ->
-//           # url = @action
-//           # data = @comment_body
-//           # debugger
-//           # data2 =
-//           #   authenticity_token: $('input[name=\'authenticity_token\']').val()
-//           #   'comment': 'content': $('#comment_content').val()
-//           # e.preventDefault()
-//       #     return
-//       #   return
-//
-//
-//
-//
-//
-// # CONVERT TO CoffeeScript
-//
-// $ ->
-//   $('p.comment_submit').on 'click', (e) ->
-//     alert 'your comment has been submitted to the devs'
-//     url = @action
-//     data = @comment_body
-//     # debugger
-//     data2 =
-//       authenticity_token: $('input[name=\'authenticity_token\']').val()
-//       'comment': 'content': $('#comment_content').val()
-//     e.preventDefault()
-//     return
-//   return
-//
-//   $('a.load_comments').on 'click', (e) ->
-//     $.get(@href).success (response) ->
-//       $('div.comments').html response
-//       return
-//     e.preventDefault()
-//     return
-//   return
 //
 // # $(function() {
 // #    $("p.comment_submit").on("click", function(e){
 // #      alert("your comment has been submitted to the devs")
 // #    })
 // # })
-//
-//
+
 
 // AND AGAIN
 $(function(){
-  $("p.comment_submit").on("click", function(e){
-    
-    alert("CLICK MOTHAFUCKA");
+  $("#new_comment").on("submit", function(e){
+        // 1. url submit post
+        url = this.action
+
+        // 2. get form data
+        data = {
+          'authenticity_token': $("input[name='authenticity_token']").val(),
+          'comment': {
+            'content': $('#comment_content').val()
+          }
+        }
+
+        // low level
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: data,
+          success: function(response){
+            var $ol = $("div.comments ol")
+            $ol.append(response)
+          }
+        })
     e.preventDefault()
   })
 })

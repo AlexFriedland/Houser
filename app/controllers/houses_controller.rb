@@ -33,8 +33,6 @@ class HousesController < ApplicationController
     #if not logged in can't see this, go back to login
     #if session[:user_id].present?
 
-    # binding.pry
-    # @comment = Comment.new(user_id: @user.id)
   end
 
   def show
