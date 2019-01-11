@@ -1,6 +1,8 @@
 <div class="user_comments" id="">
   <h4>Your Feedback: </h4>
   <ol>
-
+    <% @comments.each do |comment| %>
+    <li><%= comment.body %></li>
+    <% end %>
   </ol>
 </div>

@@ -35,6 +35,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    if logged_in?
+      @user = User.find_by(params[:user_id])
+      redirect_to user_path(@user)
+    else
+      redirect_to '/login'
+    end
+  end
+
   helpers do
     def logged_in?
       !!session[:user_id]
