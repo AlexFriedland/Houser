@@ -1,5 +1,5 @@
 require 'pry'
-
+#
 class CommentsController < ApplicationController
   # before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :create]
 
