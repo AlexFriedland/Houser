@@ -126,26 +126,27 @@
 $(function(){
   $("#new_comment").on("submit", function(e){
         // 1. url submit post
-        url = this.action
-
-        // 2. get form data
-        data = {
-          'authenticity_token': $("input[name='authenticity_token']").val(),
-          'comment': {
-            'content': $('#comment_content').val()
-          }
-        }
-
-        // low level
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: data,
-          success: function(response){
-            var $ol = $("div.comments ol")
-            $ol.append(response)
-          }
-        })
+        // url = this.action
+        //
+        // // 2. get form data
+        // data = {
+        //   'authenticity_token': $("input[name='authenticity_token']").val(),
+        //   'comment': {
+        //     'content': $('#comment_content').val()
+        //   }
+        // }
+        //
+        // // low level
+        // $.ajax({
+        //   type: "POST",
+        //   url: url,
+        //   data: data,
+        //   success: function(response){
+        //     var $ol = $("div.comments ol")
+        //     $ol.append(response)
+        //   }
+        // })
+        debugger
     e.preventDefault()
   })
 })

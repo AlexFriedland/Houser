@@ -29,8 +29,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @comment = @user.comments.build(user_id: session[:user_id], body: params[:comment][:body])
+
+    @user = User.find(session[:user_id])
+    binding.pry
+    @comment = @user.comments.build(user_id: @user.id, body: params[:comment][:body])
 
     if @comment.save
 
