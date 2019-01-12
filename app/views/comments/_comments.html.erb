@@ -1,3 +1,7 @@
-<% @comments.each do |c| %>
-  <li><%= c.body %></li>
-<% end %>
+<div class="comments">
+  <ol>
+    <% @comments.each do |comment| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ol>
+</div>

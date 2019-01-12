@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @comments = @user.comments
-    # respond_to do |format|
-    #   format.html {render 'index.html', :layout => false}
-    #   format.js {render 'index.js', :layout => false}
-    # end
+    respond_to do |format|
+      format.html {render 'index.html', :layout => false}
+      format.js {render 'index.js', :layout => false}
+    end
     # render :json => @comments
   end
 
