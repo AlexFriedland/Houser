@@ -1,0 +1,12 @@
+// this is 'script' from part 4 in houses.js
+// alert("keep the change ya filthy animal")
+
+
+// back in rails stack so you can use erb
+// browser 'script' in pt4 of houses.js references this
+// then we redirect to _comments
+
+// the j - see docs - js render helper
+
+var html = "<%= j(render('comments/comments')) %>"
+$("div.comments ol").html(html)

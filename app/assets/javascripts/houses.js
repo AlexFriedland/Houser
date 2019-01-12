@@ -39,16 +39,14 @@
        // })
 
        // PASS THREE - server side
-       // previously browser was handling
-
+       // bind generic AJAX request to get more instructions from index.js.erb
        $.ajax({
          url: this.href,
          // script in index.js.erb
          dataType: 'script'
        })
 
-
-
+       
        e.preventDefault();
      })
 
