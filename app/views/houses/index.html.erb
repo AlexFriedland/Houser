@@ -101,21 +101,22 @@
 
 <br><br>
 
-<!-- COMMENTS FROM HOUSES.COFFEE, whatever is loaded will be injected here -->
-<div class="comments">
-
-</div>
-
 <footer>
   <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>
 </footer>
 <br>
 
 <!-- add ajax to load this, include w the other -->
-<%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments" %>
+<span>
+  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments" %>
+  <br>
+  <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
+</span>
 
-<!-- <div class="comments">
-  <%#= render 'comments/comments' %>
-</div> -->
+
+<!-- COMMENTS FROM HOUSES.js, whatever is loaded will be injected here -->
+<div class="comments">
+
+</div>
 
 <%= render 'comments/new' %>

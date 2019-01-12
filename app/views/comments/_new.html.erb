@@ -3,7 +3,7 @@
 
 <%= form_for([@user, @comment]) do |f| %>
   <%= f.text_area :body %>
-  <p class="comment_submit"><%= f.submit %></p>
+  <p class="new_comment"><%= f.submit %></p>
 <% end %>
 
 <%# <%= form_with(model: @user_comment) do |f| %>
