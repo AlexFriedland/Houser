@@ -79,13 +79,16 @@
               'content': $("#comment_body").val()
             }
           };
-
+          console.log(data)
           // 3. send and append
-          $.ajaz({
+          $.ajax({
             type: "POST",
             url: url,
-            data: data, success: function(response){
+            data: data,
+            success: function(response){
               debugger
+              var $ol = $("div.comments ol")
+              $ol.append(response)
             }
           })
 

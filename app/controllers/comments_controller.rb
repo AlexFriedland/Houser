@@ -34,11 +34,14 @@ class CommentsController < ApplicationController
   def create
 
     @user = User.find(session[:user_id])
-    @comment = @user.comments.build(user_id: @user.id, body: params[:comment][:body])
-
+    @comment = @user.comments.build(user_id: @user.id, body: params[:comment][:content])
+    binding.pry
     if @comment.save
 
-      render 'houses'
+      # render 'houses'
+      render 'comments/show', :layout => false
+
+
       # respond_to do |format|
       #   format.html {render 'index.html', :layout => false}
       #   format.js {render 'index.js', :layout => false}
