@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @comments = @user.comments
-    
+
     # normally implicit
     respond_to do |format|
       format.html {render 'index.html', :layout => false}
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @comment = @user.comments.find(params[:id])
+    @comment = @user.comments
 
     # respond_to do |format|
     #   format.html {render 'index.html', layout: false}
