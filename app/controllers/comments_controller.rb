@@ -35,7 +35,6 @@ class CommentsController < ApplicationController
 
     @user = User.find(session[:user_id])
     @comment = @user.comments.build(user_id: @user.id, body: params[:comment][:content])
-    binding.pry
     if @comment.save
 
       # render 'houses'

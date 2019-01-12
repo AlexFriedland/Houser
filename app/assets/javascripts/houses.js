@@ -86,7 +86,6 @@
             url: url,
             data: data,
             success: function(response){
-              debugger
               var $ol = $("div.comments ol")
               $ol.append(response)
             }
