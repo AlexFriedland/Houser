@@ -108,7 +108,7 @@
 
 <!-- add ajax to load this, include w the other -->
 <span>
-  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments" %>
+  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
   <br>
   <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
 </span>
@@ -117,7 +117,7 @@
 <!-- COMMENTS FROM HOUSES.js, whatever is loaded will be injected here -->
 <div class="comments">
   <ol>
-    
+
   </ol>
 </div>
 

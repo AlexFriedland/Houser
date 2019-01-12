@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @comments = @user.comments
+    
+    # normally implicit
     respond_to do |format|
       format.html {render 'index.html', :layout => false}
       format.js {render 'index.js', :layout => false}
