@@ -4,12 +4,12 @@
 
 // # instead of:
 //
-// # $(document).ready(function(e){
-// #     $("a.load_comments").on("click", function(e){
-// #       alert("You clicked the link to load comments")
-// #       e.preventDefault();
-// #     })
-// # })
+ $(document).ready(function(e){
+     $("a.load_comments").on("click", function(e){
+       alert("You clicked the link to load comments")
+       e.preventDefault();
+     })
+ })
 //
 // #just pass anonymous $(function)
 //
@@ -146,7 +146,8 @@ $(function(){
         //     $ol.append(response)
         //   }
         // })
-        debugger
+        // debugger
+        alert("WHAT")
     e.preventDefault()
   })
 })

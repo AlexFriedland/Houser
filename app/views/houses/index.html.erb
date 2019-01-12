@@ -112,8 +112,10 @@
 <br>
 
 <!-- add ajax to load this, include w the other -->
-<div class="comments">
-  <%= render 'comments/comments' %>
-</div>
+<%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments" %>
+
+<!-- <div class="comments">
+  <%#= render 'comments/comments' %>
+</div> -->
 
 <%= render 'comments/new' %>
