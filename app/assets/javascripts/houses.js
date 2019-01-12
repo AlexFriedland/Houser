@@ -17,8 +17,7 @@
 
      //hide comments
      $("a.hide_comments").on("click", function(e){
-       alert("HIDE COMMENTS?")
-       $("div.comments").val("");
+       $("div.comments").html("");
        e.preventDefault();
      })
  })
