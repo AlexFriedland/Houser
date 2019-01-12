@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
 
-      render 'comments/show'
+      render 'houses'
       # respond_to do |format|
       #   format.html {render 'index.html', :layout => false}
       #   format.js {render 'index.js', :layout => false}

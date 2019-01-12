@@ -1,4 +1,4 @@
-//load_comments with AJAX
+//load_comments with AJAX replaced w :remote => true
  $(document).ready(function(e){
    //also worked with click
      // $("a.load_comments").on("click", function(e){
@@ -62,4 +62,37 @@
        $("div.comments").empty()
        e.preventDefault();
      })
+
+
+
+     // SUBMIT comments w ajax
+      $(function(){
+        $("#new_comment").on("submit", function(e){
+          // 1. get url
+          var url = this.action
+
+          // 2. get form data + authenticity token (w every post request)
+          // rebuilding params hash manually
+          var data = {
+            'authenticity_token': $("input[name='authenticity_token']").val(),
+            'comment': {
+              'content': $("#comment_body").val()
+            }
+          };
+
+          // 3. send and append
+          $.ajaz({
+            type: "POST",
+            url: url,
+            data: data, success: function(response){
+              debugger
+            }
+          })
+
+          e.preventDefault()
+        })
+      })
+
+
+
  })
