@@ -2,7 +2,7 @@
   <ol>
     <% if @comments.first.body != "" || @comments.first.body != nil %>
       <% @comments.each do |comment| %>
-        <li><%= comment.body %></li>
+        <li><%= comment.body if comment.body != "" && comment.body != nil %></li>
       <% end %>
     <% end %>
   </ol>
