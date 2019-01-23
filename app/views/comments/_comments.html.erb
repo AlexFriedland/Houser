@@ -1,7 +1,9 @@
 <div class="comments">
   <ol>
-    <% @comments.each do |comment| %>
-      <li><%= comment.body %></li>
+    <% if @comments.first.body != "" || @comments.first.body != nil %>
+      <% @comments.each do |comment| %>
+        <li><%= comment.body %></li>
+      <% end %>
     <% end %>
   </ol>
 </div>
