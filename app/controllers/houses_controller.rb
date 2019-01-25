@@ -1,5 +1,5 @@
 require 'pry'
-
+require 'open_weather'
 =begin
 <!-- FIX THIS LINK
 <div><%= link_to 'Add New Year', new_house_year_path %></div>
@@ -26,6 +26,11 @@ class HousesController < ApplicationController
   end
 
   def index
+    options = { units: "metric", APPID: "1111111111" }
+    @weather = OpenWeather::Current.city("West Orange, NJ", options)
+    @forecast = OpenWeather::Forecast.city("West Orange, NJ", options)
+    binding.pry
+    
     @user = User.find(session[:user_id])
     #comments stuff
     @comments = @user.comments
