@@ -31,12 +31,13 @@ class HousesController < ApplicationController
     @forecast = OpenWeather::Forecast.city("West Orange, NJ", options)
 
     @user = User.find(session[:user_id])
-    #comments stuff
     @comments = @user.comments
     @comment = @user.comments.build(user_id: @user.id)
-    #if not logged in can't see this, go back to login
-    #if session[:user_id].present?
 
+    respond_to do |f|
+      f.html
+      f.json {render json: @user}
+    end
   end
 
   def show
