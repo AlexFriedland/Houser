@@ -64,6 +64,16 @@
      e.preventDefault();
    })
 
+   $("a.load_comments").on("click", function(e){
+       $("div.comments").empty()
+       e.preventDefault()
+       // SECOND PASS
+       // JQUERY API FOR REQUESTS (Jquery.get)
+       $.get(this.href).done(function(server_response){
+         $("div.comments").html(server_response)
+       })
+     })
+
 
 
    // SUBMIT comments w ajax
