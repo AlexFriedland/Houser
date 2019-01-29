@@ -54,47 +54,45 @@
 
 
 
-     // HIDE COMMENTS
 
-     $("a.hide_comments").on("click", function(e){
-       // $("div.comments").html("");
-       // OR
-       $("div.comments").empty()
-       e.preventDefault();
-     })
+   // HIDE COMMENTS
+
+   $("a.hide_comments").on("click", function(e){
+     // $("div.comments").html("");
+     // OR
+     $("div.comments").empty()
+     e.preventDefault();
+   })
 
 
 
-     // SUBMIT comments w ajax
-      $(function(){
-        $("#new_comment").on("submit", function(e){
-          // 1. get url
-          var url = this.action
+   // SUBMIT comments w ajax
+    $(function(){
+      $("#new_comment").on("submit", function(e){
+        // 1. get url
+        var url = this.action
 
-          // 2. get form data + authenticity token (w every post request)
-          // rebuilding params hash manually
-          var data = {
-            'authenticity_token': $("input[name='authenticity_token']").val(),
-            'comment': {
-              'content': $("#comment_body").val()
-            }
-          };
-          console.log(data)
-          // 3. send and append
-          $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function(response){
-              var $ol = $("div.comments ol")
-              $ol.append(response)
-            }
-          })
-
-          e.preventDefault()
+        // 2. get form data + authenticity token (w every post request)
+        // rebuilding params hash manually
+        var data = {
+          'authenticity_token': $("input[name='authenticity_token']").val(),
+          'comment': {
+            'content': $("#comment_body").val()
+          }
+        };
+        console.log(data)
+        // 3. send and append
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: data,
+          success: function(response){
+            var $ol = $("div.comments ol")
+            $ol.append(response)
+          }
         })
+
+        e.preventDefault()
       })
-
-
-
+    })
  })
