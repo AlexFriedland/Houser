@@ -1,3 +1,8 @@
-<% @comments.each do |comment| %>
-  <li><%= comment.body %></li>
-<% end %>
+<h4><strong>Comments Index</strong></h4>
+
+<ol>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+
+</ol>
