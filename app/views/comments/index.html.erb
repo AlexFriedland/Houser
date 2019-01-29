@@ -2,7 +2,7 @@
 
 <ol>
   <% @comments.each do |comment| %>
-    <li><%= comment.body %></li>
+    <li><%= comment.body %> - created at: <%= comment.created_at %></li>
   <% end %>
 
 </ol>

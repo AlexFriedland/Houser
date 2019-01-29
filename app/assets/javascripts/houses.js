@@ -80,6 +80,15 @@
         // 1. get url
         var url = this.action
 
+
+        // QUESTION
+        // in last vid he binds $form = $(this)
+        // var action = $form.attr("action")
+
+        // is one better practice?
+
+
+
         // 2. get form data + authenticity token (w every post request)
         // rebuilding params hash manually
         var data = {
