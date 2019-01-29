@@ -29,8 +29,7 @@ class HousesController < ApplicationController
     options = { units: "metric", APPID: "1111111111" }
     @weather = OpenWeather::Current.city("West Orange, NJ", options)
     @forecast = OpenWeather::Forecast.city("West Orange, NJ", options)
-    binding.pry
-    
+
     @user = User.find(session[:user_id])
     #comments stuff
     @comments = @user.comments
