@@ -111,6 +111,7 @@
 <span>
   <%#= link_to 'Comments Page for learn.co', user_comments_path(@user) %>
   <%= link_to 'Load Comments Without Remote True', user_comments_path(@user), :class => "load_comments2" %>
+  <br>
   <!-- removed , :remote => true -->
   <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
   <br>
