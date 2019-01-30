@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :create]
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
     @comments = @user.comments
 
     # normally implicit
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
     @comment = @user.comments
 
     # respond_to do |format|
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find(session[:user_id])
     @comment = Comment.new(user_id: @user.id)
   end
 
@@ -61,7 +61,7 @@ class CommentsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find_by_id(session[:user_id])
+    @user = User.find(session[:user_id])
   end
 
   def comments_params
