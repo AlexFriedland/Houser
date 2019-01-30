@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     @comments = @user.comments
-
+    @comment = Comment.new(user_id: @user.id)
+    
     # normally implicit
     respond_to do |format|
       format.html {render 'index.html', :layout => false}
@@ -33,7 +34,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-
     @user = User.find(session[:user_id])
     @comment = @user.comments.build(user_id: @user.id, body: params[:comment][:content])
     if @comment.save
