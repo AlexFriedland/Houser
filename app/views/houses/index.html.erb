@@ -109,8 +109,9 @@
 
 <!-- add ajax to load this, include w the other -->
 <span>
-  <%= link_to 'Comments Page for learn.co', user_comments_path(@user) %>
-  <br>
+  <%#= link_to 'Comments Page for learn.co', user_comments_path(@user) %>
+  <%= link_to 'Load Comments Without Remote True', user_comments_path(@user), :class => "load_comments2" %>
+  <!-- removed , :remote => true -->
   <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
   <br>
   <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
