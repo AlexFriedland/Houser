@@ -1,10 +1,12 @@
 <h4><strong>Comments Index</strong></h4>
 
-<ol>
-  <% @comments.each do |comment| %>
-    <li><%= comment.body %> - created at: <%= comment.created_at %></li>
-  <% end %>
+<div class="comments">
 
-</ol>
-<br>
+</div>
+
+<span>
+  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
+  <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
+</span>
+
 <%= render 'comments/new' %>

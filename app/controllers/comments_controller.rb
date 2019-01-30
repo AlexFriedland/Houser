@@ -4,10 +4,9 @@ class CommentsController < ApplicationController
   # before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :create]
 
   def index
-    @user = User.find(session[:user_id])
-    @comments = @user.comments
-    @comment = Comment.new(user_id: @user.id)
-    
+    # wowza!
+    set_user_and_comments()
+
     # normally implicit
     respond_to do |format|
       format.html {render 'index.html', :layout => false}
@@ -46,7 +45,7 @@ class CommentsController < ApplicationController
       #   format.html {render 'index.html', :layout => false}
       #   format.js {render 'index.js', :layout => false}
       # end
-      #
+      
       # render 'create.js', :layout => false
       # redirect_to user_comment_path(@user.id, @comment.id), layout: false
     else
@@ -55,6 +54,12 @@ class CommentsController < ApplicationController
   end
 
   def delete
+  end
+
+  def set_user_and_comments
+    @user = User.find(session[:user_id])
+    @comments = @user.comments
+    @comment = Comment.new(user_id: @user.id)
   end
 
   private
@@ -67,4 +72,5 @@ class CommentsController < ApplicationController
   def comments_params
     params.require(:comment).permit(:body)
   end
+
 end
