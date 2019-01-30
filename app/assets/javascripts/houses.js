@@ -52,9 +52,6 @@
      //   e.preventDefault();
      // })
 
-
-
-
    // HIDE COMMENTS
 
    $("a.hide_comments").on("click", function(e){

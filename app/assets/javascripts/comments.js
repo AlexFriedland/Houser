@@ -8,7 +8,7 @@ $(document).ready(function(e){
   })
 
   $("a.load_comments").on("click", function(e){
-    debugger
+    
     $("div.comments").empty()
     e.preventDefault()
     $.get(this.href).done(function(server_response){
