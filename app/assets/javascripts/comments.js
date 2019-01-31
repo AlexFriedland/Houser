@@ -1,5 +1,6 @@
 $(document).ready(function(e){
-
+  alert("loaded")
+  debugger
   $("a.load_comments2").on("click", function(e){
     e.preventDefault()
     // $.get(this.href).done(function(json){
@@ -20,21 +21,6 @@ $(document).ready(function(e){
         $ol.append("<li>" + comment.body + "</li>")
       })
     });
-    
+
   })
-//
-//
-//   $("a.hide_comments").on("click", function(e){
-//     $("div.comments").empty()
-//     e.preventDefault();
-//   })
-//
-//   $("a.load_comments").on("click", function(e){
-//
-//     $("div.comments").empty()
-//     e.preventDefault()
-//     $.get(this.href).done(function(server_response){
-//       $("div.comments").html(server_response)
-//     })
-//   })
 })

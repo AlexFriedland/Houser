@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    @comment = @user.comments
+    @comment = @user.comments.find(params[:id])
+
 
     # respond_to do |format|
     #   format.html {render 'index.html', layout: false}
@@ -45,7 +46,7 @@ class CommentsController < ApplicationController
       #   format.html {render 'index.html', :layout => false}
       #   format.js {render 'index.js', :layout => false}
       # end
-      
+
       # render 'create.js', :layout => false
       # redirect_to user_comment_path(@user.id, @comment.id), layout: false
     else

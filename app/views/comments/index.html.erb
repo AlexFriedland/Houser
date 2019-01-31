@@ -1,6 +1,5 @@
-
-  <ol>
-    <% @comments.each do |comment| %>
-      <li><%= comment.body if comment.body != "" && comment.body != nil %></li>
-    <% end %>
-  </ol>
+<ol>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body if comment.body != "" && comment.body != nil %></li>
+  <% end %>
+</ol>
