@@ -20,12 +20,3 @@
 
 
 //= require_tree .
-
-
-$("a.load_comment").on("click", function(e){
-  e.preventDefault()
-  $.ajax({
-    url: this.href,
-    dataType: 'script'
-  })
-})

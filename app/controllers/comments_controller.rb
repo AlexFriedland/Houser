@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   # before_action :set_user, only: [:index, :show, :edit, :update, :destroy, :create]
 
   def index
-    # wowza!
     destroy_blank_comments()
     set_user_and_comments()
 
@@ -25,6 +24,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html {render 'show.html', layout: false}
       format.js {render 'index.js', layout: false}
+      format.json{render json: @comment}
     end
 
   end
