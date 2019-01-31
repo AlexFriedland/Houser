@@ -1,6 +1,8 @@
 $(document).ready(function(e){
 
-  $("div.comments a.load_comment").on("click", function(e){
+
+
+  $("div.comments").delegate("a.load_comment", "click", function(e){
     e.preventDefault()
     $.ajax({
       url: this.href,
@@ -16,14 +18,6 @@ $(document).ready(function(e){
       url: this.href,
       // script in index.js.erb
       dataType: 'script'
-    })
-
-    $("div.comments a.load_comment").on("click", function(e){
-      e.preventDefault()
-      $.ajax({
-        url: this.href,
-        dataType: 'script'
-      })
     })
 
   //   // $.get(this.href).done(function(json){
