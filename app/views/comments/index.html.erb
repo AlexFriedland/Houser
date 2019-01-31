@@ -1,22 +1,6 @@
-<%#= javascript_include_tag "/comments", "data-turbolinks-track" => true  %>
 
-
-<h4><strong>Comments Index</strong></h4>
-
-<div class="comments">
   <ol>
-    <% if @comments.first.body != "" || @comments.first.body != nil %>
-      <% @comments.each do |comment| %>
-        <li><%= comment.body if comment.body != "" && comment.body != nil %></li>
-      <% end %>
+    <% @comments.each do |comment| %>
+      <li><%= comment.body if comment.body != "" && comment.body != nil %></li>
     <% end %>
   </ol>
-</div>
-
-
-<span>
-  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
-  <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
-</span>
-
-<%= render 'comments/new' %>
