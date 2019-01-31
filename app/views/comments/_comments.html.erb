@@ -1,8 +1,7 @@
 <ol>
   <% @comments.each do |comment| %>
     <li>
-      <%# binding.pry %>
-      <%= link_to "#{comment.body}", user_comment_path(comment.user.id, comment.id), :class => "comment" %>
+      <%= link_to "#{comment.body}", user_comment_path(comment.user.id, comment.id), :class => "load_comment" %>
     </li>
   <% end %>
 </ol>

@@ -1,6 +1,12 @@
 $(document).ready(function(e){
 
-
+  $("a.load_comment").on("click", function(e){
+    e.preventDefault()
+    $.ajax({
+      url: this.href,
+      dataType: 'script'
+    })
+  })
 
   // JSON
   $("a.load_comments2").on("click", function(e){

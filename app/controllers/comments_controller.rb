@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def index
     # wowza!
+    destroy_blank_comments()
     set_user_and_comments()
 
     # normally implicit
@@ -61,6 +62,12 @@ class CommentsController < ApplicationController
     @user = User.find(session[:user_id])
     @comments = @user.comments
     @comment = Comment.new(user_id: @user.id)
+  end
+
+  def destroy_blank_comments
+    Comment.all.each {|c|
+      c.destroy if c.body == "" || c.body == nil
+    }
   end
 
   private

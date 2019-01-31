@@ -1,5 +1,14 @@
 //load_comments with AJAX replaced w :remote => true
  $(document).ready(function(e){
+
+   $("a.load_comment").on("click", function(e){
+     e.preventDefault()
+     $.ajax({
+       url: this.href,
+       dataType: 'script'
+     })
+   })
+
    //also worked with click
      // $("a.load_comments").on("click", function(e){
      //   $("div.comments").empty()
@@ -13,7 +22,7 @@
      //     })
      //   })
 
-     
+
      //
      //
      //   // PASS ONE - AJAX
