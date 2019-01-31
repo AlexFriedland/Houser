@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
     @comment = @user.comments.find(params[:id])
 
 
-    # respond_to do |format|
-    #   format.html {render 'index.html', layout: false}
-    #   format.js {render 'index.js', layout: false}
-    # end
+    respond_to do |format|
+      format.html {render 'show.html', layout: false}
+      format.js {render 'index.js', layout: false}
+    end
 
   end
 

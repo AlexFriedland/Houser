@@ -3,6 +3,17 @@
    //also worked with click
      // $("a.load_comments").on("click", function(e){
      //   $("div.comments").empty()
+
+
+     // $("a.load_comments").on("click", function(e){
+     //     $("div.comments").empty()
+     //     e.preventDefault()
+     //     $.get(this.href).done(function(server_response){
+     //       $("div.comments").html(server_response)
+     //     })
+     //   })
+
+     
      //
      //
      //   // PASS ONE - AJAX
@@ -40,11 +51,11 @@
      //
      //   // PASS THREE - server side
      //   // bind generic AJAX request to get more instructions from index.js.erb
-     //   $.ajax({
-     //     url: this.href,
-     //     // script in index.js.erb
-     //     dataType: 'script'
-     //   })
+       // $.ajax({
+       //   url: this.href,
+       //   // script in index.js.erb
+       //   dataType: 'script'
+       // })
      //
      //   // PASS FOUR - COMMENT ALL THIS OUT AND PUT :REMOTE => TRUE, BUT HIDE COMMENTS DOESN'T WORK
      //   // DATA REMOTE -> AJAX REQUEST TO LINK, THEN TO JS FILE FOR MODEL
