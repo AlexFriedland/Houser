@@ -4,9 +4,6 @@ function Comment(attributes){
   this.body = attributes.body
 }
 
-Item.prototype.renderLi = function(){
-
-}
 
 
 
