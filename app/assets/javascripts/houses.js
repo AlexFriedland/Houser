@@ -1,13 +1,3 @@
-function Comment(attributes){
-  this.description = attributes.description
-  this.user_id = attribuets.user_id
-  this.body = attributes.body
-}
-
-Item.prototype.renderLi = function(){
-  
-}
-
 //load_comments with AJAX replaced w :remote => true
  $(document).ready(function(e){
 
