@@ -97,11 +97,6 @@ $(document).ready(function(e){
          url: url,
          data: data,
          success: function(response){
-
-           // constructor logic
-           var comment = new Comment(response);
-           var commentLi = comment.renderLi();
-
            var $ol = $("div.comments ol")
            $ol.append(response)
          }
