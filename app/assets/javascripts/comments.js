@@ -1,12 +1,14 @@
 function Comment(attributes){
   this.description = attributes.description
-  this.user_id = attribuets.user_id
+  this.user_id = attributes.user_id
   this.body = attributes.body
 }
 
 Item.prototype.renderLi = function(){
 
 }
+
+
 
 $(document).ready(function(e){
 

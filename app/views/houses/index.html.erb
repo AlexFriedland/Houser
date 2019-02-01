@@ -1,126 +1,146 @@
 
 
-<h1>Welcome, <%= @user.name %></h1><br>
-<h3>Overview:</h3>
+<h1>
+  Welcome, <strong><%= @user.name %></strong>
+</h1>
 
-<br/>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>MarketValue</th>
-      <th>Value</th>
-      <th>Income</th>
-      <th>Expenses</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.houses.each do |house| %>
-        <tr>
-          <td><%= link_to house.name, house %></td>
-          <td><%= house.market_value %></td>
-          <td><%= house.value %></td>
-          <td><%= house.show_total_income %></td>
-          <td><%= house.total_expenses %></td>
-        </tr>
-    <%end%>
-  </tbody>
-</table>
-
-<br><br>
-
-<table>
-  <thead>
-    <tr>
-      <th>YOY</th>
-      <% x = [] %>
-      <% @user.houses.each do |h| %>
-        <% h.years.each do |y| %>
-          <% x << y.year %>
-        <% end %>
-      <% end %>
-
-      <% x.each do |y| %>
-        <th><%= y %></th>
-      <% end %>
-    </tr>
-    <tr>
-      <!-- WHY NOT WORK BATMAN!?!?!?!? -->
-      <% x = all_years @user %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%@user.houses.each do |house| %>
-      <tr>
-        <td><%= house.name %></td>
-        <% house.years.each do |year| %>
-          <td> <%= link_to year.total_income, house_year_url(year.house.id, year.id) %> </td>
-        <% end %>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
-
-
-<br><br>
-
-
-
-<!-- week.closed? -->
-<table>
-  <thead>
-    <tr>
-      <th>Open Weeks</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @user.houses.each do |house| %>
-        <% house.years.each do |year| %>
-          <% year.weeks.each do |week| %>
-            <% if week.closed? != true %>
-              <td> <%= link_to week.date, week %></td>
-            <% end %>
-          <% end %>
-        <%end%>
-      <%end %>
-
-  </tbody>
-</table>
-
-<br><br><br>
-
-<div><%#= link_to 'Add New Year', new_house_year_path %></div>
-<div><%= link_to 'Add New Week', new_week_path %></div>
-<div><%= link_to 'Add New Expense', new_expense_path %></div>
-<div><%= link_to 'Add New Renter', new_renter_path %></div>
-<div><%= link_to 'Add New House', new_house_path %></div>
-
-
-<br><br>
-
-<footer>
-  <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>
-</footer>
-<br>
-
-
-<!-- add ajax to load this, include w the other -->
 <span>
-  <%#= link_to 'Comments Page for learn.co', user_comments_path(@user) %>
-  <%= link_to 'Load Comments Without Remote True', user_comments_path(@user), :class => "load_comments2" %>
-  <br>
-  <!-- removed , :remote => true -->
-  <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
-  <br>
-  <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
+  <%= link_to 'Show Profile', user_path(@user), class: "show_user_profile" %>
+  <%= link_to 'Hide Profile', user_path(@user), class: "hide_user_profile" %>
 </span>
 
-<!-- COMMENTS FROM HOUSES.js, whatever is loaded will be injected here -->
-<div class="comments">
-  <%#= render 'comments/comments' %>
+
+<div class="user_profile">
+
 </div>
 
-<%= render 'comments/new' %>
+
+
+<div class="index">
+
+  <br>
+  <h3>Your Dashboard:</h3>
+
+  <br/>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>MarketValue</th>
+        <th>Value</th>
+        <th>Income</th>
+        <th>Expenses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.houses.each do |house| %>
+          <tr>
+            <td><%= link_to house.name, house %></td>
+            <td><%= house.market_value %></td>
+            <td><%= house.value %></td>
+            <td><%= house.show_total_income %></td>
+            <td><%= house.total_expenses %></td>
+          </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+  <br><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>YOY</th>
+        <% x = [] %>
+        <% @user.houses.each do |h| %>
+          <% h.years.each do |y| %>
+            <% x << y.year %>
+          <% end %>
+        <% end %>
+
+        <% x.each do |y| %>
+          <th><%= y %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <!-- WHY NOT WORK BATMAN!?!?!?!? -->
+        <% x = all_years @user %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%@user.houses.each do |house| %>
+        <tr>
+          <td><%= house.name %></td>
+          <% house.years.each do |year| %>
+            <td> <%= link_to year.total_income, house_year_url(year.house.id, year.id) %> </td>
+          <% end %>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+
+  <br><br>
+
+
+
+  <!-- week.closed? -->
+  <table>
+    <thead>
+      <tr>
+        <th>Open Weeks</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @user.houses.each do |house| %>
+          <% house.years.each do |year| %>
+            <% year.weeks.each do |week| %>
+              <% if week.closed? != true %>
+                <td> <%= link_to week.date, week %></td>
+              <% end %>
+            <% end %>
+          <%end%>
+        <%end %>
+
+    </tbody>
+  </table>
+
+  <br><br><br>
+
+  <div><%#= link_to 'Add New Year', new_house_year_path %></div>
+  <div><%= link_to 'Add New Week', new_week_path %></div>
+  <div><%= link_to 'Add New Expense', new_expense_path %></div>
+  <div><%= link_to 'Add New Renter', new_renter_path %></div>
+  <div><%= link_to 'Add New House', new_house_path %></div>
+
+
+  <br><br>
+
+  <footer>
+    <span>Logged in as: <%= current_user.email %>  <%= link_to "    logout", logout_path %></span>
+  </footer>
+  <br>
+
+
+  <!-- add ajax to load this, include w the other -->
+  <span>
+    <%#= link_to 'Comments Page for learn.co', user_comments_path(@user) %>
+    <%= link_to 'Load Comments Without Remote True', user_comments_path(@user), :class => "load_comments2" %>
+    <br>
+    <!-- removed , :remote => true -->
+    <%= link_to 'Load Comments', user_comments_path(@user), :class => "load_comments", :remote => true %>
+    <br>
+    <%= link_to 'Hide Comments', user_comments_path(@user), :class => "hide_comments" %>
+  </span>
+
+  <!-- COMMENTS FROM HOUSES.js, whatever is loaded will be injected here -->
+  <div class="comments">
+    <%#= render 'comments/comments' %>
+  </div>
+
+  <%= render 'comments/new' %>
+
+</div>
