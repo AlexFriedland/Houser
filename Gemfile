@@ -51,6 +51,8 @@ gem 'pry'
  # hides .env file for facebook data
  gem 'dotenv-rails'
 
+ gem 'handlebars', '~> 0.7.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
