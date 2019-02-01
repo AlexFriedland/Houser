@@ -7,7 +7,9 @@ function User(x){
 }
 
 User.prototype.renderUser = function(){
-  return "user renderUser"
+  return "Name: " + this.name + " "
+  + "<br>"
+  + "Email: " + this.email;
 }
 
 $(document).ready(function(e){
@@ -15,7 +17,7 @@ $(document).ready(function(e){
   $("a.show_user_profile").on("click", function(e){
     e.preventDefault();
     $("div.user_profile").empty()
-    
+
     $.ajax({
       url: this.href,
       dataType: 'json'
