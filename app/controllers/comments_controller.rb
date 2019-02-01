@@ -18,12 +18,13 @@ class CommentsController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+    @comments = @user.comments
     @comment = @user.comments.find(params[:id])
 
 
     respond_to do |format|
       format.html {render 'show.html', layout: false}
-      format.js {render 'index.js', layout: false}
+      format.js {render 'show.js', layout: false}
       format.json{render json: @comment}
     end
 

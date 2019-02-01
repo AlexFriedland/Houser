@@ -2,7 +2,8 @@ $(document).ready(function(e){
 
 
 
-  $("div.comments").delegate("a.load_comment", "click", function(e){
+  // delegated event listener
+  $("div.comments").on("click", "a.load_comment", function(e){
     e.preventDefault()
     $.ajax({
       url: this.href,
@@ -10,7 +11,7 @@ $(document).ready(function(e){
     })
   })
 
-  // JSON
+  // js
   $("a.load_comments2").on("click", function(e){
     e.preventDefault()
 
