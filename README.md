@@ -31,11 +31,15 @@ Project Repo Specs:
 [X] Read Me file contains:
 [X] Application Description
 [x] Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
-[ ] Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
-[ ] Licensing statement at the bottom (e.g. This project has been licensed under the MIT open source license.)
+[x] Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
+[x] Licensing statement at the bottom (e.g. This project has been licensed under the MIT open source license.)
 
-Repo General
-You have a large number of small Git commits
-Your commit messages are meaningful
-You made the changes in a commit that relate to the commit message
-You don't include changes in a commit that aren't related to the commit message
+Copyright 2019 by Alexander Friedland
+
+CONTRIBUTING: please feel free to help me improve Houser.  Be sure to keep it clean and appropriate.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
