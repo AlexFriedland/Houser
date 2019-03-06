@@ -1,11 +1,16 @@
-function Comment(attributes){
-  this.description = attributes.description
-  this.user_id = attributes.user_id
-  this.body = attributes.body
+// switch to class
+
+class Comment {
+  constructor(attributes) {
+    this.user_id = attributes.user_id;
+    this.body = attributes.body;
+  }
+
+  renderComment(){
+    return "Comment: " + this.body + " "
+    + "<br>";
+  }
 }
-
-
-
 
 $(document).ready(function(e){
 
